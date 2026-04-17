@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FAQ | Regulatorní sandboxy</title>
+<meta name="description" content="Často kladené otázky o regulatorních sandboxech — co to je, kdo to platí, je to legální a co se stane po skončení testování."/>
+<meta name="theme-color" content="#38432a"/>
+<link rel="canonical" href="https://regulatornisandboxy.cz/faq/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="cs_CZ"/>
+<meta property="og:title" content="FAQ | Regulatorní sandboxy"/>
+<meta property="og:description" content="Často kladené otázky o regulatorních sandboxech v ČR."/>
+<meta property="og:url" content="https://regulatornisandboxy.cz/faq/"/>
+<meta property="og:site_name" content="Regulatorní sandboxy"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Noto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#4f5a40","on-tertiary":"#ffffff","secondary-fixed-dim":"#b5d17b","inverse-on-surface":"#f3f0f0",background:"#fbf9f8",secondary:"#4f661d","surface-variant":"#e4e2e1","on-primary-container":"#c4d1b0","inverse-surface":"#303030","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-secondary-container":"#536a21","surface-dim":"#dcd9d9",outline:"#76786f",error:"#ba1a1a","outline-variant":"#c6c7bc","on-tertiary-container":"#cecbcb","surface-container":"#f0eded","on-surface-variant":"#45483f","on-surface":"#1b1c1c","on-background":"#1b1c1c","surface-container-low":"#f6f3f2","surface-container-highest":"#e4e2e1","primary-fixed-dim":"#bfcbab","surface-tint":"#576248","secondary-container":"#ceea92","on-primary":"#ffffff",primary:"#38432a","on-secondary":"#ffffff","tertiary-container":"#575656",tertiary:"#3f3f3f","inverse-primary":"#bfcbab","surface-bright":"#fbf9f8","on-error":"#ffffff","on-error-container":"#93000a",surface:"#fbf9f8","primary-fixed":"#dbe7c5","secondary-fixed":"#d1ed94","surface-container-high":"#eae7e7"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Noto Serif"],body:["Plus Jakarta Sans"],label:["Inter"]}}}}</script>
+
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .acc-arrow{transform:rotate(180deg)}
+.acc-arrow{transition:transform .3s ease}
+
+:root{--green:#849753;--green-dark:#6b7d41;--green-deep:#4a5a2e;--ink:#1a1c18;--ink-2:#3a3d35;--line:#e5e4dc}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,padding .3s,box-shadow .3s}
+.site-header.scrolled,.site-header--solid{background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1240px;margin:0 auto;padding:0 32px}
+.brand{flex-shrink:0;display:inline-flex;align-items:center;text-decoration:none}
+.brand-mark{font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)}
+.nav{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav a{color:var(--ink-2);font-size:14.5px;font-weight:500;transition:color .2s;text-decoration:none}
+.nav a:hover{color:var(--green-deep)}
+.nav a[aria-current="page"]{color:var(--green-deep);font-weight:600}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px;margin-left:auto;z-index:101}
+.menu-btn span{display:block;width:26px;height:2px;background:var(--ink);transition:background .3s}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:2px;font-weight:500;font-size:14.5px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;font-family:inherit;text-decoration:none}
+.btn-sm{padding:9px 18px;font-size:13.5px}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+
+@media(max-width:960px){
+.nav{position:fixed;top:0;right:-100%;background:#fff;flex-direction:column;padding:100px 40px 40px;width:280px;max-width:85vw;height:100vh;box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:right .32s ease;margin:0;gap:4px}
+.nav.open{right:0}
+.nav a{font-size:18px;padding:12px 0}
+.menu-btn{display:flex}
+}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body" style="font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+
+<!-- HEADER -->
+<header class="site-header site-header--solid">
+  <div class="header-inner">
+    <a href="../" class="brand"><span class="brand-mark">Regulatorní sandboxy</span></a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="../#sandbox">Sandbox</a>
+      <a href="../#typy">Typy</a>
+      <a href="../#metodika">Metodika</a>
+      <a href="../#osa">Průběh</a>
+      <a href="../#partneri">Partneři</a>
+      <a href="../#tym">Tým</a>
+      <a href="../priklady-ze-zahranici/">Příklady</a>
+      <a href="../clanky/">Články</a>
+      <a href="./" aria-current="page">FAQ</a>
+      <a href="../#kontakt" class="btn btn-sm btn-primary">Kontakt</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<section class="pt-32 md:pt-40 pb-16 md:pb-24 px-6 md:px-16 relative overflow-hidden isolate" style="min-height:320px">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#2b3a1a] via-[#4a5a2e] to-[#6b7d41]"></div>
+  <div class="absolute inset-0 -z-10 opacity-50 mix-blend-luminosity" style="background:url(../img/hero-bg.png) center/cover no-repeat"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[rgba(20,26,12,.7)] to-[rgba(20,26,12,.3)]"></div>
+  <div class="max-w-[1240px] mx-auto relative">
+    <nav aria-label="Drobečková navigace" class="text-xs text-white/60 mb-6">
+      <a href="../" class="hover:text-white/90">Úvod</a>
+      <span class="mx-2">/</span>
+      <span class="text-white/80">FAQ</span>
+    </nav>
+    <span class="font-label text-white/70 uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Podpora</span>
+    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl mb-6 italic max-w-4xl leading-[1.05] text-white">Často kladené otázky</h1>
+  </div>
+</section>
+
+<!-- HLAVNÍ OBSAH -->
+<main class="py-12 md:py-16 px-6 md:px-16">
+  <!-- ===== VARIANTA B: Otázky vlevo, odpověď vpravo ===== -->
+  <div class="max-w-[1240px] mx-auto flex flex-col md:flex-row gap-8">
+
+    <!-- Levý sloupec: otázky -->
+    <div class="md:w-2/5 space-y-1" id="faq-questions">
+      <button data-faq="0" class="faq-q faq-q--active w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">science</span> Co je regulatorní sandbox?</button>
+      <button data-faq="1" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">payments</span> Kdo to platí?</button>
+      <button data-faq="2" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">verified</span> Je to legální?</button>
+      <button data-faq="3" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">flag</span> Co se stane, až to skončí?</button>
+      <button data-faq="4" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">gavel</span> Jaký zákon sandboxy umožňuje?</button>
+      <button data-faq="5" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">group</span> Kdo může podat podnět?</button>
+      <button data-faq="6" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">schedule</span> Jak dlouho sandbox trvá?</button>
+      <button data-faq="7" class="faq-q w-full text-left px-5 py-4 rounded-xl transition-all duration-200 font-semibold text-sm flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-xl">public</span> Existují sandboxy i v zahraničí?</button>
+    </div>
+
+    <!-- Pravý sloupec: odpověď -->
+    <div class="md:w-3/5 bg-surface p-8 md:p-10 rounded-xl border border-outline-variant/10 md:sticky md:top-24 self-start">
+      <h2 class="font-headline text-2xl italic text-primary mb-4 flex items-center gap-3"><span class="material-symbols-outlined text-secondary" id="faq-icon">science</span> <span id="faq-title">Co je regulatorní sandbox?</span></h2>
+      <p class="text-on-surface-variant leading-relaxed" id="faq-body">Regulatorní sandbox je časově omezený rámec, který umožňuje zkoušet inovativní služby nebo technologie v&nbsp;reálném prostředí, i&nbsp;když je stávající legislativa zatím nezná. Regulátor předem vymezí pravidla, podmínky a&nbsp;dobu trvání testu.</p>
+    </div>
+
+  </div>
+  <script>
+  (function(){
+    var answers = [
+      {t:"Co je regulatorní sandbox?", icon:"science", b:"Regulatorní sandbox je časově omezený rámec, který umožňuje zkoušet inovativní služby nebo technologie v\u00a0reálném prostředí, i\u00a0když je stávající legislativa zatím nezná. Regulátor předem vymezí pravidla, podmínky a\u00a0dobu trvání testu."},
+      {t:"Kdo to platí?", icon:"payments", b:"Projekt je financován z\u00a0veřejných zdrojů — konkrétně z\u00a0Operačního programu Zaměstnanost plus (OPZ+), který je spolufinancován Evropskou unií. Pro účastníky sandboxu nevznikají žádné přímé náklady."},
+      {t:"Je to legální?", icon:"verified", b:"Ano. Regulatorní sandbox funguje na principu zákonných výjimek s\u00a0jasně definovanými pravidly. Regulátor předem stanoví podmínky, časový rámec a\u00a0bezpečnostní opatření. Vše probíhá pod jeho dohledem — nejde o\u00a0obcházení zákonů, ale o\u00a0jejich kontrolované testování."},
+      {t:"Co se stane, až to skončí?", icon:"flag", b:"Po ukončení sandboxu proběhne důkladné vyhodnocení výsledků. Pokud se testované řešení osvědčí, regulátor doporučí úpravu legislativy tak, aby se inovace mohla zavést i\u00a0mimo sandbox. Pokud ne, získáme cenné poznatky o\u00a0tom, proč přístup nefungoval."},
+      {t:"Jaký zákon sandboxy umožňuje?", icon:"gavel", b:"Zákon 328/2025 Sb., o\u00a0výzkumu, vývoji, inovacích a\u00a0transferu znalostí. Zavedl pojem \u201ekontrolované testovací prostředí\u201c (regulatorní sandbox) do českého práva a\u00a0definuje základní pravidla — délku trvání, cíle, indikátory, způsob dozoru a\u00a0pravidla odchylná od běžné legislativy."},
+      {t:"Kdo může podat podnět?", icon:"group", b:"Kdokoliv — firma, výzkumná organizace, nezisková organizace nebo samospráva. Podnět se podává příslušnému regulátorovi (ústřednímu správnímu úřadu), který posoudí, zda je sandbox vhodný nástroj pro daný případ."},
+      {t:"Jak dlouho sandbox trvá?", icon:"schedule", b:"Délku trvání stanoví regulátor individuálně pro každý projekt. Typicky jde o\u00a0měsíce až jednotky let. Po\u00a0ukončení má předkladatel 3\u00a0měsíce na odevzdání zprávy o\u00a0výsledcích regulátorovi."},
+      {t:"Existují sandboxy i v zahraničí?", icon:"public", b:"Ano, ve\u00a0velkém. Od roku 2016 (Velká Británie) se rozšířily do desítek zemí — Německo, Polsko, Litva, Singapur, Japonsko a\u00a0další. Nařízení EU o\u00a0umělé inteligenci (AI Act) navíc ukládá každému členskému státu zřídit alespoň jeden AI sandbox do\u00a0srpna 2026."}
+    ];
+    var btns = document.querySelectorAll('.faq-q');
+    var tEl = document.getElementById('faq-title');
+    var iEl = document.getElementById('faq-icon');
+    var bEl = document.getElementById('faq-body');
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = parseInt(b.dataset.faq);
+        tEl.textContent = answers[i].t;
+        iEl.textContent = answers[i].icon;
+        bEl.innerHTML = answers[i].b;
+        btns.forEach(function(x){x.classList.remove('faq-q--active');});
+        b.classList.add('faq-q--active');
+      });
+    });
+  })();
+  </script>
+  <style>
+  .faq-q{color:#45483f;background:transparent;border:none;cursor:pointer;font-family:inherit}
+  .faq-q:hover{background:rgba(56,67,42,.04);color:#38432a}
+  .faq-q--active{background:rgba(56,67,42,.08)!important;color:#38432a!important;border-left:3px solid #38432a}
+  </style>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#f0eded] w-full border-t border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 md:px-12 py-12 md:py-16 max-w-screen-2xl mx-auto">
+<div>
+<div class="font-serif italic text-xl text-primary mb-2">regulatornisandboxy.cz</div>
+<p class="text-sm text-on-surface-variant"><a href="https://www.aqe.cz" target="_blank" rel="noopener" class="text-primary font-semibold no-underline hover:underline">AQE advisors, a.s.</a> · IČO: 26954770 · <span id="footer-year">2026</span></p>
+<p class="text-xs text-outline mt-2">Projekt Vl:Aštovka (CZ.03.03.01/23_057/0006345) je financován z&nbsp;Operačního programu Zaměstnanost plus (OPZ+).</p>
+</div>
+<div class="flex gap-6 md:justify-end items-center flex-wrap">
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../priklady-ze-zahranici/">Příklady</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../clanky/">Články</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="./">FAQ</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../#kontakt">Kontakt</a>
+</div>
+</div>
+<script>(function(){var y=document.getElementById('footer-year');if(y){var n=new Date().getFullYear();if(n>2026)y.textContent=n;}})();</script>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn');
+  var nav=document.querySelector('.nav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+})();
+</script>
+
+</body>
+</html>

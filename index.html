@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Regulatorní sandboxy v ČR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#4f5a40","on-tertiary":"#ffffff","secondary-fixed-dim":"#b5d17b","inverse-on-surface":"#f3f0f0",background:"#fbf9f8",secondary:"#4f661d","surface-variant":"#e4e2e1","on-primary-container":"#c4d1b0","inverse-surface":"#303030","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-secondary-container":"#536a21","surface-dim":"#dcd9d9",outline:"#76786f",error:"#ba1a1a","outline-variant":"#c6c7bc","on-tertiary-container":"#cecbcb","surface-container":"#f0eded","on-surface-variant":"#45483f","on-surface":"#1b1c1c","on-background":"#1b1c1c","surface-container-low":"#f6f3f2","surface-container-highest":"#e4e2e1","primary-fixed-dim":"#bfcbab","surface-tint":"#576248","secondary-container":"#ceea92","on-primary":"#ffffff",primary:"#38432a","on-secondary":"#ffffff","tertiary-container":"#575656",tertiary:"#3f3f3f","inverse-primary":"#bfcbab","surface-bright":"#fbf9f8","on-error":"#ffffff","on-error-container":"#93000a",surface:"#fbf9f8","primary-fixed":"#dbe7c5","secondary-fixed":"#d1ed94","surface-container-high":"#eae7e7"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Noto Serif"],body:["Plus Jakarta Sans"],label:["Inter"]}}}}</script>
+<style>
+/* Material icons */
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
+.text-balance{text-wrap:balance}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .acc-arrow{transform:rotate(180deg)}
+.acc-arrow{transition:transform .3s ease}
+
+/* Reveal animation (triggered by main.js) */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* =========== HEADER (from original) =========== */
+:root{--green:#849753;--green-dark:#6b7d41;--green-deep:#4a5a2e;--green-soft:#eef2e3;--ink:#1a1c18;--ink-2:#3a3d35;--muted:#6c6f65;--line:#e5e4dc;--font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Fraunces',Georgia,serif}
+.serif-it{font-family:var(--serif);font-weight:300;font-style:italic;letter-spacing:-.02em}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,padding .3s,box-shadow .3s}
+.site-header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1240px;margin:0 auto;padding:0 32px}
+.brand{flex-shrink:0;display:inline-flex;align-items:center;text-decoration:none}
+.brand-mark{font-weight:600;font-size:17px;letter-spacing:-.01em;color:#fff;transition:color .3s}
+.site-header.scrolled .brand-mark{color:var(--ink)}
+.nav{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;transition:color .2s;text-decoration:none}
+.nav a:hover{color:#fff}
+.site-header.scrolled .nav a{color:var(--ink-2)}
+.site-header.scrolled .nav a:hover{color:var(--green)}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px;margin-left:auto;z-index:101}
+.menu-btn span{display:block;width:26px;height:2px;background:#fff;transition:background .3s}
+.site-header.scrolled .menu-btn span{background:var(--ink)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:2px;font-weight:500;font-size:14.5px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;font-family:inherit;text-decoration:none}
+.btn-sm{padding:9px 18px;font-size:13.5px}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* =========== HERO (from original) =========== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;color:#fff;isolation:isolate}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#2b3a1a 0%,#4a5a2e 55%,#6b7d41 100%);z-index:-2}
+.hero-bg::before{content:'';position:absolute;inset:0;background:url(img/hero-bg.png) center/cover no-repeat;opacity:.55;mix-blend-mode:luminosity}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,12,.35) 0%,rgba(20,26,12,.78) 100%);z-index:-1}
+.hero-inner{position:relative;padding:180px 32px 160px;max-width:1180px;width:100%;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:40px;font-weight:500;padding-left:44px;position:relative}
+.hero-eyebrow::before{content:'';position:absolute;left:0;top:50%;width:32px;height:1px;background:rgba(255,255,255,.6)}
+.hero-title{font-size:clamp(44px,7vw,92px);font-weight:400;letter-spacing:-.035em;line-height:1.04;margin-bottom:32px;max-width:18ch}
+.hero-lead{font-size:clamp(17px,1.55vw,22px);line-height:1.55;color:rgba(255,255,255,.88);max-width:58ch;margin-bottom:44px;font-weight:400}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+/* Mobile nav */
+@media(max-width:960px){
+.nav{position:fixed;top:0;right:-100%;background:#fff;flex-direction:column;padding:100px 40px 40px;width:280px;max-width:85vw;height:100vh;box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:right .32s ease;margin:0;gap:4px}
+.nav.open{right:0}
+.nav a,.site-header.scrolled .nav a{color:var(--ink)!important;font-size:18px;padding:12px 0}
+.menu-btn{display:flex}
+}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container" style="font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">Regulatorní sandboxy</span>
+    </a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="#sandbox">Sandbox</a>
+      <a href="#typy">Typy</a>
+      <a href="#metodika">Metodika</a>
+      <a href="#osa">Průběh</a>
+      <a href="#partneri">Partneři</a>
+      <a href="priklady-ze-zahranici/">Příklady</a>
+      <a href="clanky/">Články</a>
+      <a href="faq/">FAQ</a>
+      <a href="#kontakt" class="btn btn-sm btn-primary">Kontakt</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">AQE advisors · 2024–2026</span>
+    <h1 class="hero-title">
+      Regulatorní sandboxy<br>
+      <span class="serif-it">pro český</span> veřejný sektor
+    </h1>
+    <p class="hero-lead">
+      Připravujeme první českou metodiku, která státu a samosprávám ukáže, jak bezpečně testovat nová řešení dřív,
+      než se z nich stane zákon. Méně rizika, rychlejší inovace, lepší služby pro občany.
+    </p>
+    <div class="hero-actions">
+      <a href="#sandbox" class="btn btn-primary">Co je sandbox</a>
+      <a href="#osa" class="btn btn-ghost-light">Průběh projektu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CO JE SANDBOX ===== -->
+<section id="sandbox" class="py-24 md:py-32 px-6 md:px-16 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto">
+<div class="editorial-grid mb-16">
+<div class="col-span-12 lg:col-span-5">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Základní koncept</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Co je regulatorní sandbox?</h2>
+</div>
+<div class="col-span-12 lg:col-span-7 flex flex-col justify-center">
+<p class="text-lg text-on-surface-variant leading-relaxed mb-6">
+Regulatorní sandbox je časově omezené testovací prostředí, ve kterém lze pod dohledem regulátora zkoušet inovativní řešení, které stávající legislativa zatím neumožňuje nebo nezná. Výsledky testování slouží jako podklad pro úpravu regulace.
+</p>
+</div>
+</div>
+
+<!-- Accordions -->
+<div class="max-w-3xl space-y-3 mb-20">
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">gavel</span> Kdo je regulátor?</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">
+V podmínkách České republiky je regulátorem ústřední správní úřad, tedy ministerstvo nebo jiný ústřední orgán státní správy (např. ČTÚ, ERÚ, SÚJB, NÚKIB, TAČR, GA&nbsp;ČR). Celkem je to 14 ministerstev a&nbsp;17 dalších ústředních orgánů. S&nbsp;účinností zákona 328/2025 Sb. přibývají další dva: Grantová agentura ČR a&nbsp;Technologická agentura ČR.
+</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">description</span> Formální definice v českém právu</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">
+Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolovaného testovacího prostředí (regulatorní sandbox) je časově omezený regulační rámec, který umožňuje testování inovativních technologií, produktů a&nbsp;služeb v&nbsp;reálném prostředí tak, aby se usnadnil vývoj nebo standardizace inovativních technologií, produktů nebo služeb." (§&nbsp;63, odst.&nbsp;1)
+</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">balance</span> Legislativní rámec</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed space-y-3">
+<p><strong class="text-primary">Zákon 328/2025 Sb.</strong> — klíčový zákon, který zavedl pojem „kontrolované testovací prostředí" do českého práva. Definuje pravidla, délku trvání, cíle, indikátory, způsob dozoru.</p>
+<p><strong class="text-primary">DEPO II</strong> — novelizace více než 70 složkových zákonů, která umožní realizaci sandboxů v praxi. V přípravě.</p>
+<p><strong class="text-primary">AI Act (č. 2024/1689)</strong> — nařízení EU zavádějící povinné AI sandboxy do srpna 2026.</p>
+<p><strong class="text-primary">Interoperable Europe Act</strong> — sandboxy pro interoperabilitu digitálních veřejných služeb.</p>
+<p><strong class="text-primary">Farmaceutický balíček EU (2025)</strong> — sandbox pro vývoj nových léčivých přípravků.</p>
+</div>
+</details>
+</div>
+
+<!-- Proč sandboxy — accordion items -->
+<h3 class="font-headline text-3xl md:text-4xl mb-8 italic">Proč zavádět sandboxy?</h3>
+<div class="grid md:grid-cols-2 gap-4 max-w-4xl">
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10" open>
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span>Inovace nečekají na zákon</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-3 text-on-surface-variant text-sm leading-relaxed">Místo „nejdřív zákon, pak praxe" se praxe stává podkladem pro zákon. Sandboxy umožňují bezpečně testovat řešení, která by jinak čekala roky.</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span>Regulátor se učí z praxe</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-3 text-on-surface-variant text-sm leading-relaxed">Klíčovou fází každého sandboxu je regulatorní učení — regulátor získává přímou zkušenost s&nbsp;dopady inovací a&nbsp;může nastavit regulaci na základě důkazů.</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span>EU to vyžaduje</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-3 text-on-surface-variant text-sm leading-relaxed">Nařízení EU o&nbsp;umělé inteligenci (článek 57) ukládá každému členskému státu zavést alespoň jeden národní regulatorní sandbox do 2.&nbsp;srpna 2026.</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span>Koordinované testování napříč resorty</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-3 text-on-surface-variant text-sm leading-relaxed">Zákon 328/2025 Sb. výslovně umožňuje ústředním správním úřadům zřizovat společné projekty kontrolovaného testovacího prostředí.</div>
+</details>
+</div>
+</div>
+</section>
+
+<!-- ===== TYPOLOGIE ===== -->
+<section id="typy" class="py-24 md:py-32 px-6 md:px-16 bg-surface">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-16 flex flex-col md:flex-row justify-between md:items-end gap-6">
+<div class="max-w-2xl">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Klasifikace</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Typologie a přístupy</h2>
+<p class="text-on-surface-variant text-lg">Podle klasifikace Chena a&nbsp;Taeighagha (2024) rozlišujeme tři funkční typy podle hlavního účelu.</p>
+</div>
+<div class="w-24 h-px bg-primary opacity-20 hidden md:block"></div>
+</div>
+
+<!-- 3 typy -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">01</span>
+<h3 class="font-headline text-2xl mb-3">Průzkumný</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Objevování a&nbsp;testování nových řešení, kde regulátor teprve získává zkušenosti.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">CzechInvest — spolupráce s&nbsp;firmami na finančních trzích, kde se hledá cesta, jak vyhovět stávající legislativě.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">02</span>
+<h3 class="font-headline text-2xl mb-3">Potvrzující</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Ověření, že již vyvinuté řešení funguje a&nbsp;může být bezpečně nasazeno do praxe.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">Španělský AI sandbox — ověření před přijetím celoevropské legislativy.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">03</span>
+<h3 class="font-headline text-2xl mb-3">Na poptávku</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Regulátor sám vymezuje prioritní témata a&nbsp;motivuje k&nbsp;experimentům.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">Singapur — telemedicína jako prioritní oblast testování.</p>
+</details>
+</div>
+</div>
+
+<!-- 3 přístupy — tmavý blok -->
+<div class="bg-primary text-on-primary rounded-3xl p-10 md:p-16 editorial-grid relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none"><svg class="w-full h-full fill-current" viewBox="0 0 100 100"><circle cx="100" cy="0" r="80"/></svg></div>
+<div class="col-span-12 lg:col-span-4">
+<p class="text-xs uppercase tracking-widest opacity-50 mb-3">Podle Leckenby a kol. (2021)</p>
+<h3 class="font-headline text-3xl md:text-4xl italic mb-4">Tři přístupy k experimentu</h3>
+</div>
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+<div>
+<h4 class="font-bold text-lg mb-2 tracking-wide">PORADNÍ</h4>
+<p class="text-on-primary/70 text-sm leading-loose mb-2">Pomoci novým produktům splnit stávající předpisy.</p>
+<p class="text-on-primary/40 text-xs">Výsledek: mění se produkt, ne regulace.</p>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2 tracking-wide">ADAPTIVNÍ</h4>
+<p class="text-on-primary/70 text-sm leading-loose mb-2">Přizpůsobení stávajících předpisů novému řešení.</p>
+<p class="text-on-primary/40 text-xs">Výsledek: mění se produkt i politika.</p>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2 tracking-wide">PŘEDVÍDAVÝ</h4>
+<p class="text-on-primary/70 text-sm leading-loose mb-2">Vyvíjet předpisy souběžně s vývojem produktů.</p>
+<p class="text-on-primary/40 text-xs">Výsledek: vzniká zcela nová regulace.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== METODIKA ===== -->
+<section id="metodika" class="py-24 md:py-32 px-6 md:px-16 bg-surface-container-low overflow-hidden">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-16 md:mb-24">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Životní cyklus</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Jak vzniká sandbox</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Od prvního nápadu po přenesení zkušeností do legislativy. Vycházíme ze zákona 328/2025 Sb. a&nbsp;zahraničních zkušeností.</p>
+</div>
+<!-- Horizontal 4 steps -->
+<div class="relative editorial-grid mb-16">
+<div class="absolute top-[2.8rem] left-0 w-full h-[1px] bg-primary/20 hidden lg:block"></div>
+<div class="col-span-12 lg:col-span-3 relative">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold mb-6 relative z-10 shadow-lg">1</div>
+<h4 class="font-headline text-xl mb-3 italic">Identifikace podnětu</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Někdo přijde s&nbsp;nápadem, který naráží na legislativu. Posoudí se, zda je sandbox vhodný nástroj.</p>
+</div>
+<div class="col-span-12 lg:col-span-3 relative">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold mb-6 relative z-10 shadow-lg">2</div>
+<h4 class="font-headline text-xl mb-3 italic">Rozhodnutí regulátora</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Regulátor stanoví parametry: délku, cíle, indikátory, rozsah dozoru a&nbsp;výjimky z legislativy.</p>
+</div>
+<div class="col-span-12 lg:col-span-3 relative">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold mb-6 relative z-10 shadow-lg">3</div>
+<h4 class="font-headline text-xl mb-3 italic">Realizace a monitoring</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Testování v reálných podmínkách pod dohledem. Průběžně se sbírají data a&nbsp;zpětná vazba.</p>
+</div>
+<div class="col-span-12 lg:col-span-3 relative">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold mb-6 relative z-10 shadow-lg">4</div>
+<h4 class="font-headline text-xl mb-3 italic">Regulatorní učení</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Nejdůležitější fáze. Regulátor vyhodnocuje výsledky a rozhoduje: úprava legislativy, rozšíření, nebo zamítnutí.</p>
+</div>
+</div>
+
+<!-- Accordions pod metodikou -->
+<div class="max-w-3xl mx-auto space-y-3">
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">travel_explore</span> Inspirace: německé Reallabore</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">Nejpropracovanější systém regulatorního učení na světě. Zákon o&nbsp;Reallabore (2025) zavádí zastřešující normy pro experimenty, experimentální doložky ve složkových zákonech a&nbsp;jednotné online kontaktní místo.</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">checklist</span> Co musí regulátor nastavit?</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">Zákon 328/2025 Sb. požaduje: (a)&nbsp;délku trvání projektu, (b)&nbsp;cíle, (c)&nbsp;indikátory ověření naplnění cílů, (d)&nbsp;rozsah a&nbsp;způsob dozoru, (e)&nbsp;pravidla odchylná od platné legislativy.</div>
+</details>
+<details class="bg-surface p-6 rounded-xl border border-outline-variant/10">
+<summary class="flex items-center justify-between font-semibold text-primary">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">construction</span> Co v ČR zatím chybí?</span>
+<span class="material-symbols-outlined acc-arrow text-outline">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed space-y-2">
+<p><strong class="text-primary">Procesní pravidla regulátorů</strong> — ministerstva zatím nemají nastaveno, jak přijímat podněty a rozhodovat o sandboxech.</p>
+<p><strong class="text-primary">Metodika pro sociální oblast</strong> — sandboxy v sociální politice mají specifika, pro která vytváříme metodiku.</p>
+<p><strong class="text-primary">Pilotní ověření</strong> — v ČR zatím proběhl pouze sandbox CzechInvestu (<a href="https://fintechsandbox.cz/" target="_blank" class="text-primary underline">fintechsandbox.cz</a>).</p>
+</div>
+</details>
+</div>
+</div>
+</section>
+
+<!-- ===== ČASOVÁ OSA ===== -->
+<section id="osa" class="py-24 md:py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/10">
+<div class="max-w-[1440px] mx-auto">
+<div class="max-w-2xl mb-16 md:mb-24">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Chronologie</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Kde se nacházíme</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">Klíčové milníky od roku 2018 po plánované aktivity.</p>
+</div>
+<div class="relative">
+<!-- Central line -->
+<div class="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-primary/20 lg:-translate-x-1/2"></div>
+<div class="space-y-12 lg:space-y-16">
+
+<!-- 2018 -->
+<div class="relative flex flex-col lg:flex-row items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pr-16 text-right"><span class="font-headline text-4xl text-primary/30 italic font-bold">2018</span></div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10"></div>
+<div class="pl-16 lg:pl-16 lg:w-1/2">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+<span class="lg:hidden font-headline text-xl text-primary/40 italic font-bold mb-1 block">2018</span>
+<h4 class="font-bold text-primary mb-1">První zmínka v české strategii</h4>
+<p class="text-on-surface-variant text-sm">Strategie „Digitální Česko" obsahuje úkol pro MPO: zavedení sandboxu do českého práva.</p>
+</div></div></div>
+
+<!-- 2020 -->
+<div class="relative flex flex-col lg:flex-row-reverse items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pl-16 text-left"><span class="font-headline text-4xl text-primary/30 italic font-bold">2020</span></div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10"></div>
+<div class="pl-16 lg:pr-16 lg:w-1/2">
+<div class="bg-surface-container-low p-6 rounded-xl border-r-4 border-primary lg:text-right">
+<span class="lg:hidden font-headline text-xl text-primary/40 italic font-bold mb-1 block">2020</span>
+<h4 class="font-bold text-primary mb-1">EU přijímá koncept</h4>
+<p class="text-on-surface-variant text-sm">Rada EU formálně uznává regulatorní sandboxy.</p>
+</div></div></div>
+
+<!-- 2024 -->
+<div class="relative flex flex-col lg:flex-row items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pr-16 text-right"><span class="font-headline text-4xl text-primary/30 italic font-bold">2024</span></div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10"></div>
+<div class="pl-16 lg:pl-16 lg:w-1/2">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+<span class="lg:hidden font-headline text-xl text-primary/40 italic font-bold mb-1 block">2024</span>
+<h4 class="font-bold text-primary mb-1">První český sandbox (CzechInvest)</h4>
+<p class="text-on-surface-variant text-sm">Digitální regulační prostředí pro finanční inovace. Usnesení vlády č. 166/2024.</p>
+</div></div></div>
+
+<!-- 2025 -->
+<div class="relative flex flex-col lg:flex-row-reverse items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pl-16 text-left"><span class="font-headline text-4xl text-primary/30 italic font-bold">2025</span></div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10"></div>
+<div class="pl-16 lg:pr-16 lg:w-1/2">
+<div class="bg-surface-container-low p-6 rounded-xl border-r-4 border-primary lg:text-right">
+<span class="lg:hidden font-headline text-xl text-primary/40 italic font-bold mb-1 block">2025</span>
+<h4 class="font-bold text-primary mb-1">Zákon 328/2025 Sb.</h4>
+<p class="text-on-surface-variant text-sm">Klíčový zákon zavádějící regulatorní sandboxy do českého práva.</p>
+</div></div></div>
+
+<!-- 2026 - probíhá -->
+<div class="relative flex flex-col lg:flex-row items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pr-16 text-right">
+<span class="font-headline text-4xl text-secondary font-bold">2026</span>
+<div class="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-widest">Právě probíhá</div>
+</div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-secondary border-4 border-surface ring-4 ring-secondary/20 z-10"></div>
+<div class="pl-16 lg:pl-16 lg:w-1/2">
+<div class="bg-secondary-container/30 p-6 rounded-xl border-l-4 border-secondary shadow-md">
+<span class="lg:hidden font-headline text-xl text-secondary font-bold mb-1 block">2026</span>
+<div class="space-y-3 text-sm">
+<p class="text-on-surface-variant"><strong class="text-primary">Leden–březen:</strong> Analytická fáze projektu Vl:Aštovka.</p>
+<p class="text-on-surface-variant"><strong class="text-primary">Duben:</strong> Workshop s MPSV, ASZ, NNO a MěÚ Aš.</p>
+<p class="text-on-surface-variant"><strong class="text-primary">Červen:</strong> Návrh metodiky RS v sociální oblasti.</p>
+<p class="text-error"><strong>2. srpna:</strong> Termín EU pro AI sandbox (AI Act, čl. 57).</p>
+<p class="text-on-surface-variant"><strong class="text-primary">Prosinec:</strong> Modelové zkoušení na Ašsku.</p>
+</div>
+</div></div></div>
+
+<!-- 2027 -->
+<div class="relative flex flex-col lg:flex-row-reverse items-start lg:items-center">
+<div class="hidden lg:block lg:w-1/2 pl-16 text-left"><span class="font-headline text-4xl text-outline-variant font-bold">2027</span></div>
+<div class="absolute left-6 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-outline-variant border-4 border-surface z-10"></div>
+<div class="pl-16 lg:pr-16 lg:w-1/2">
+<div class="bg-surface-container-low p-6 rounded-xl border-r-4 border-outline-variant lg:text-right opacity-80">
+<span class="lg:hidden font-headline text-xl text-outline-variant font-bold mb-1 block">2027</span>
+<h4 class="font-bold text-primary mb-1">Závěrečná metodika a doporučení</h4>
+<p class="text-on-surface-variant text-sm">Zpracování poznatků do doporučení pro MPSV. DEPO II: novelizace 70+ zákonů.</p>
+</div></div></div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== PARTNEŘI ===== -->
+<section id="partneri" class="py-24 md:py-32 px-6 md:px-16 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto text-center">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Spolupráce</span>
+<h2 class="font-headline text-4xl mb-16 italic">Spolupracující instituce</h2>
+<div class="flex flex-wrap justify-center gap-10 md:gap-16 mb-12">
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">MPSV</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Práce a sociální věci</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">Jednáme</span></div>
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">MPO</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Průmysl a obchod</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700">Aktivní</span></div>
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">TAČR</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Technologická agentura</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700">Aktivní</span></div>
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">ASZ</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Sociální začleňování</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary">Potvrzeno</span></div>
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">MĚSTO AŠ</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Pilotní území</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary">Potvrzeno</span></div>
+<div class="flex flex-col items-center"><span class="font-headline text-2xl font-bold tracking-tighter text-primary">MŽP</span><span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Životní prostředí</span><span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">Plánováno</span></div>
+</div>
+</div>
+</section>
+
+<!-- ===== TÝM ===== -->
+<section id="tym" class="py-24 md:py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/10">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-16">
+<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Lidé za projektem</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Náš tým</h2>
+<p class="text-on-surface-variant">Realizátor: <a href="https://www.aqe.cz" target="_blank" class="text-primary font-semibold underline">AQE advisors, a.s.</a></p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">RB</div>
+<h4 class="font-headline text-lg font-bold">Rut Bízková</h4>
+<p class="text-primary text-xs font-semibold mb-2">Regulatorní prostředí</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Rut<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Zabývá se významem inovací pro regionální rozvoj, managementem výzkumu a vývoje. Spoluautorka řady strategických dokumentů.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JH</div>
+<h4 class="font-headline text-lg font-bold">Jan Havránek</h4>
+<p class="text-primary text-xs font-semibold mb-2">Strategický rozvoj</p>
+<p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JP</div>
+<h4 class="font-headline text-lg font-bold">Jan Pavelka</h4>
+<p class="text-primary text-xs font-semibold mb-2">Vedoucí projektu</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Janovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Výzkumník na UP Olomouc a VUT Brno. Podílel se na mezinárodní síti HBSC. V projektu Vl:Aštovka působí jako projektový manažer a zabývá se metodikou spekulativního designu.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">DB</div>
+<h4 class="font-headline text-lg font-bold">Daniel Bečvář</h4>
+<p class="text-primary text-xs font-semibold mb-2">Výzkum a analýzy</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Danielovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Sociální geograf, doktorský program na FEK ZČU. Hlavní autor první rešerše odborné literatury k tématu regulatorních sandboxů ve střední Evropě.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">KK</div>
+<h4 class="font-headline text-lg font-bold">Katka Kusáková</h4>
+<p class="text-primary text-xs font-semibold mb-2">—</p>
+<p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">AŠ</div>
+<h4 class="font-headline text-lg font-bold">Aneta Šmerdová</h4>
+<p class="text-primary text-xs font-semibold mb-2">—</p>
+<p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#f0eded] w-full border-t border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 md:px-12 py-12 md:py-16 max-w-screen-2xl mx-auto">
+<div>
+<div class="font-serif italic text-xl text-primary mb-2">regulatornisandboxy.cz</div>
+<p class="text-sm text-on-surface-variant"><a href="https://www.aqe.cz" target="_blank" class="text-primary font-semibold no-underline hover:underline">AQE advisors, a.s.</a> · IČO: 26954770 · 2026</p>
+<p class="text-xs text-outline mt-2">Projekt Vl:Aštovka (CZ.03.03.01/23_057/0006345) je financován z&nbsp;OPZ+.</p>
+</div>
+<div class="flex gap-6 md:justify-end items-center flex-wrap">
+<a class="text-primary-container hover:underline underline-offset-4 text-sm no-underline" href="priklady-ze-zahranici/">Příklady</a>
+<a class="text-primary-container hover:underline underline-offset-4 text-sm no-underline" href="clanky/">Články</a>
+<a class="text-primary-container hover:underline underline-offset-4 text-sm no-underline" href="faq/">FAQ</a>
+</div>
+</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

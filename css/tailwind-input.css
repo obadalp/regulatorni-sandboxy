@@ -1,0 +1,7 @@
+/* Vstupní soubor pro Tailwind build.
+   Tyhle tři direktivy Tailwind nahradí stovkami řádků CSS
+   při `npm run build`. Nepiš sem normální CSS. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

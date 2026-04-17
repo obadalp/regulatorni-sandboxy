@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<!-- ============================================================
+     ŠABLONA PODSTRÁNKY — jednotný vzhled s homepage (kopie.html)
+     Návod k použití:
+       1) Zkopíruj tento soubor do složky podstránky (clanky/, faq/, ...)
+        a pojmenuj ho index.html
+     2) Vyplň {{PLACEHOLDERY}} níže
+     3) Nahraď obsah <main> svým textem
+     4) Nastav aria-current="page" u správného odkazu v navigaci
+     ============================================================ -->
+
+<title>{{TITLE}} | Regulatorní sandboxy</title>
+<meta name="description" content="{{DESCRIPTION}}"/>
+<meta name="theme-color" content="#38432a"/>
+<link rel="canonical" href="https://regulatornisandboxy.cz/{{SLUG}}/"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="cs_CZ"/>
+<meta property="og:title" content="{{TITLE}} | Regulatorní sandboxy"/>
+<meta property="og:description" content="{{DESCRIPTION}}"/>
+<meta property="og:url" content="https://regulatornisandboxy.cz/{{SLUG}}/"/>
+<meta property="og:site_name" content="Regulatorní sandboxy"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Noto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<!-- Tailwind config (totožný s kopie.html) -->
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#4f5a40","on-tertiary":"#ffffff","secondary-fixed-dim":"#b5d17b","inverse-on-surface":"#f3f0f0",background:"#fbf9f8",secondary:"#4f661d","surface-variant":"#e4e2e1","on-primary-container":"#c4d1b0","inverse-surface":"#303030","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-secondary-container":"#536a21","surface-dim":"#dcd9d9",outline:"#76786f",error:"#ba1a1a","outline-variant":"#c6c7bc","on-tertiary-container":"#cecbcb","surface-container":"#f0eded","on-surface-variant":"#45483f","on-surface":"#1b1c1c","on-background":"#1b1c1c","surface-container-low":"#f6f3f2","surface-container-highest":"#e4e2e1","primary-fixed-dim":"#bfcbab","surface-tint":"#576248","secondary-container":"#ceea92","on-primary":"#ffffff",primary:"#38432a","on-secondary":"#ffffff","tertiary-container":"#575656",tertiary:"#3f3f3f","inverse-primary":"#bfcbab","surface-bright":"#fbf9f8","on-error":"#ffffff","on-error-container":"#93000a",surface:"#fbf9f8","primary-fixed":"#dbe7c5","secondary-fixed":"#d1ed94","surface-container-high":"#eae7e7"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Noto Serif"],body:["Plus Jakarta Sans"],label:["Inter"]}}}}</script>
+
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
+.text-balance{text-wrap:balance}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .acc-arrow{transform:rotate(180deg)}
+.acc-arrow{transition:transform .3s ease}
+
+/* =========== HEADER (stejný jako homepage) =========== */
+:root{--green:#849753;--green-dark:#6b7d41;--green-deep:#4a5a2e;--green-soft:#eef2e3;--ink:#1a1c18;--ink-2:#3a3d35;--muted:#6c6f65;--line:#e5e4dc;--font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Fraunces',Georgia,serif}
+.serif-it{font-family:var(--serif);font-weight:300;font-style:italic;letter-spacing:-.02em}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,padding .3s,box-shadow .3s}
+.site-header.scrolled,
+.site-header--solid{background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1240px;margin:0 auto;padding:0 32px}
+.brand{flex-shrink:0;display:inline-flex;align-items:center;text-decoration:none}
+.brand-mark{font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink);transition:color .3s}
+.nav{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav a{color:var(--ink-2);font-size:14.5px;font-weight:500;transition:color .2s;text-decoration:none}
+.nav a:hover{color:var(--green-deep)}
+.nav a[aria-current="page"]{color:var(--green-deep);font-weight:600}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px;margin-left:auto;z-index:101}
+.menu-btn span{display:block;width:26px;height:2px;background:var(--ink);transition:background .3s}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:2px;font-weight:500;font-size:14.5px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;font-family:inherit;text-decoration:none}
+.btn-sm{padding:9px 18px;font-size:13.5px}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+
+/* Mobile nav */
+@media(max-width:960px){
+.nav{position:fixed;top:0;right:-100%;background:#fff;flex-direction:column;padding:100px 40px 40px;width:280px;max-width:85vw;height:100vh;box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:right .32s ease;margin:0;gap:4px}
+.nav.open{right:0}
+.nav a{font-size:18px;padding:12px 0}
+.menu-btn{display:flex}
+}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body" style="font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+
+<!-- ================= HEADER ================= -->
+<header class="site-header site-header--solid">
+  <div class="header-inner">
+    <a href="../" class="brand">
+      <span class="brand-mark">Regulatorní sandboxy</span>
+    </a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="../#sandbox">Sandbox</a>
+      <a href="../#typy">Typy</a>
+      <a href="../#metodika">Metodika</a>
+      <a href="../#osa">Průběh</a>
+      <a href="../#partneri">Partneři</a>
+      <a href="../#tym">Tým</a>
+      <a href="../priklady-ze-zahranici/">Příklady</a>
+      <a href="../clanky/">Články</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../#kontakt" class="btn btn-sm btn-primary">Kontakt</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= PAGE HEADER (místo velkého hero) ================= -->
+<section class="pt-32 md:pt-40 pb-16 md:pb-24 px-6 md:px-16 bg-surface-container-low border-b border-outline-variant/20">
+  <div class="max-w-[1240px] mx-auto">
+    <nav aria-label="Drobečková navigace" class="text-xs text-outline mb-6">
+      <a href="../" class="hover:text-primary">Úvod</a>
+      <span class="mx-2">/</span>
+      <span class="text-on-surface-variant">{{BREADCRUMB}}</span>
+    </nav>
+    <span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">{{EYEBROW}}</span>
+    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl mb-6 italic max-w-4xl leading-[1.05]">{{PAGE_TITLE}}</h1>
+    <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">{{LEAD}}</p>
+  </div>
+</section>
+
+<!-- ================= HLAVNÍ OBSAH ================= -->
+<main class="py-20 md:py-28 px-6 md:px-16">
+  <div class="max-w-[1240px] mx-auto">
+
+    <!-- SEM PŘIJDE OBSAH PODSTRÁNKY -->
+    <p class="text-on-surface-variant">{{MAIN_CONTENT}}</p>
+
+  </div>
+</main>
+
+<!-- ================= FOOTER (stejný jako homepage) ================= -->
+<footer class="bg-[#f0eded] w-full border-t border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 md:px-12 py-12 md:py-16 max-w-screen-2xl mx-auto">
+<div>
+<div class="font-serif italic text-xl text-primary mb-2">regulatornisandboxy.cz</div>
+<p class="text-sm text-on-surface-variant"><a href="https://www.aqe.cz" target="_blank" rel="noopener" class="text-primary font-semibold no-underline hover:underline">AQE advisors, a.s.</a> · IČO: 26954770 · <span id="footer-year">2026</span></p>
+<p class="text-xs text-outline mt-2">Projekt Vl:Aštovka (CZ.03.03.01/23_057/0006345) je financován z&nbsp;Operačního programu Zaměstnanost plus (OPZ+).</p>
+</div>
+<div class="flex gap-6 md:justify-end items-center flex-wrap">
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../priklady-ze-zahranici/">Příklady</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../clanky/">Články</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../faq/">FAQ</a>
+<a class="text-primary hover:underline underline-offset-4 text-sm no-underline" href="../#kontakt">Kontakt</a>
+</div>
+</div>
+<script>(function(){var y=document.getElementById('footer-year');if(y){var n=new Date().getFullYear();if(n>2026)y.textContent=n;}})();</script>
+</footer>
+
+<!-- Mobilní menu toggle (minimální skript — nespoléháme na /js/main.js z rootu) -->
+<script>
+(function(){
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.querySelector('.nav');
+  if(!btn||!nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open?'true':'false');
+  });
+})();
+</script>
+
+</body>
+</html>
