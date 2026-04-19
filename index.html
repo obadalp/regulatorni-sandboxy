@@ -76,6 +76,42 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .type-row__ex-label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600;flex-shrink:0;padding-top:2px}
 .type-row__ex strong{color:#1a1a1a;font-weight:600}
 
+/* ===== Sandbox vizualizace ===== */
+.sandbox-viz{max-width:900px;margin:0 auto 56px;padding:32px;background:#fff;border:1px solid rgba(26,26,26,.08);border-radius:6px;box-shadow:0 2px 24px -18px rgba(26,26,26,.2)}
+.sandbox-viz svg{width:100%;height:auto;display:block}
+.sandbox-viz .viz-caption{margin-top:18px;font-size:14px;color:var(--ink-2);line-height:1.6;text-align:center;max-width:68ch;margin-left:auto;margin-right:auto}
+.sandbox-viz .viz-caption strong{color:#1a1a1a}
+
+/* Pulzující tečky (inovace v testu) */
+.sandbox-viz .viz-dots circle{transform-origin:center;transform-box:fill-box;animation:vizPulse 2.4s ease-in-out infinite}
+.sandbox-viz .viz-dots circle:nth-child(1){animation-delay:0s}
+.sandbox-viz .viz-dots circle:nth-child(2){animation-delay:.3s}
+.sandbox-viz .viz-dots circle:nth-child(3){animation-delay:.6s}
+.sandbox-viz .viz-dots circle:nth-child(4){animation-delay:.9s}
+.sandbox-viz .viz-dots circle:nth-child(5){animation-delay:1.2s}
+.sandbox-viz .viz-dots circle:nth-child(6){animation-delay:1.5s}
+@keyframes vizPulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.25);opacity:1}}
+
+/* Dashed border sandboxu "dýchá" */
+.sandbox-viz .viz-sandbox{animation:vizDash 4s linear infinite}
+@keyframes vizDash{to{stroke-dashoffset:-28}}
+
+/* Oko regulátora mrká */
+.sandbox-viz .viz-eye{animation:vizBlink 5s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes vizBlink{0%,40%,42%,100%{transform:scaleY(1)}41%{transform:scaleY(.1)}}
+
+/* Šipka dovnitř — průběžně teče */
+.sandbox-viz .viz-arrow-in path{stroke-dasharray:4 3;animation:vizFlow 1.6s linear infinite}
+@keyframes vizFlow{to{stroke-dashoffset:-14}}
+
+/* Redukce pohybu */
+@media(prefers-reduced-motion:reduce){
+  .sandbox-viz .viz-dots circle,
+  .sandbox-viz .viz-sandbox,
+  .sandbox-viz .viz-eye,
+  .sandbox-viz .viz-arrow-in path{animation:none!important}
+}
+
 /* Hero title — word-by-word reveal on load */
 .hero-title--animated .hw{display:inline-block;opacity:0;transform:translateY(32px);animation:hwIn .9s cubic-bezier(.16,1,.3,1) forwards}
 .hero-title--animated .hw:nth-child(1){animation-delay:.15s}
@@ -253,6 +289,71 @@ Regulační prostředí (regulatorní sandbox) je časově omezené testovací p
 <strong class="text-primary">Proč „prostředí"?</strong> Jde o&nbsp;bezpečně vymezený prostor, ve kterém mohou inovační aktéři pod dohledem regulátora testovat nová řešení dříve, než se zavedou plošně. V&nbsp;EU dokumentech se používá anglický pojem „regulatory sandbox"; české „regulační prostředí" a&nbsp;„regulatorní sandbox" jsou přitom významově totožné.
 </p>
 </div>
+</div>
+
+<!-- Vizualizace konceptu sandboxu -->
+<div class="sandbox-viz reveal" aria-label="Vizualizace konceptu regulačního prostředí">
+  <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <pattern id="viz-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+        <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(26,26,26,.05)" stroke-width="1"/>
+      </pattern>
+      <linearGradient id="viz-frame" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="rgba(26,26,26,.03)"/>
+        <stop offset="100%" stop-color="rgba(26,26,26,.08)"/>
+      </linearGradient>
+      <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#c44536"/>
+      </marker>
+      <marker id="arr-dark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+      </marker>
+    </defs>
+
+    <!-- Outer frame: Běžná legislativa -->
+    <rect x="40" y="40" width="820" height="240" rx="6" fill="url(#viz-grid)" stroke="rgba(26,26,26,.15)" stroke-width="1.5"/>
+    <text x="56" y="66" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="2" fill="#76786f" font-weight="600">BĚŽNÁ LEGISLATIVA</text>
+
+    <!-- Inner frame: Sandbox -->
+    <rect x="240" y="90" width="420" height="140" rx="4" fill="#fff" stroke="#c44536" stroke-width="1.5" stroke-dasharray="4 3" class="viz-sandbox"/>
+    <text x="256" y="114" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="2" fill="#c44536" font-weight="600">REGULAČNÍ PROSTŘEDÍ</text>
+
+    <!-- Pulsing dots — innovations being tested -->
+    <g class="viz-dots">
+      <circle cx="310" cy="160" r="8" fill="#c44536" opacity=".85"/>
+      <circle cx="360" cy="190" r="6" fill="#0d6e7e" opacity=".9"/>
+      <circle cx="420" cy="155" r="10" fill="#c44536" opacity=".8"/>
+      <circle cx="480" cy="195" r="7" fill="#0d6e7e" opacity=".85"/>
+      <circle cx="540" cy="170" r="8" fill="#c44536" opacity=".9"/>
+      <circle cx="600" cy="200" r="6" fill="#0d6e7e" opacity=".85"/>
+    </g>
+
+    <!-- Podnět arrow (left side coming in) -->
+    <g class="viz-arrow-in">
+      <path d="M 80 160 L 225 160" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr-dark)"/>
+      <text x="80" y="145" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" fill="#1a1a1a" font-weight="600">Podnět</text>
+      <text x="80" y="182" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#76786f">inovátor · firma · NNO</text>
+    </g>
+
+    <!-- Výsledek arrow (right side going out to legislation) -->
+    <g class="viz-arrow-out">
+      <path d="M 675 160 L 820 160" fill="none" stroke="#c44536" stroke-width="1.8" marker-end="url(#arr-red)"/>
+      <text x="720" y="145" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" fill="#c44536" font-weight="700" text-anchor="middle" class="viz-arrow-out-top">
+        <tspan x="750">Výsledek</tspan>
+      </text>
+      <text x="750" y="182" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#76786f" text-anchor="middle">úprava regulace</text>
+    </g>
+
+    <!-- Oko regulátora (nad sandboxem) -->
+    <g transform="translate(450,62)" class="viz-eye" aria-label="Dohled regulátora">
+      <circle r="14" fill="#1a1a1a"/>
+      <circle r="6" fill="#fff"/>
+      <circle r="3" fill="#1a1a1a"/>
+    </g>
+    <path d="M 450 76 L 450 92" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2 2" opacity=".5"/>
+    <text x="450" y="40" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#1a1a1a" font-weight="600" text-anchor="middle" letter-spacing="1">REGULÁTOR · DOHLED</text>
+  </svg>
+  <p class="viz-caption"><strong>Sandbox = bezpečné vymezené území</strong> uvnitř legislativy, kde inovace testují dřív, než se z&nbsp;nich stane zákon. Regulátor z&nbsp;experimentu čerpá podklady pro&nbsp;úpravu regulace.</p>
 </div>
 
 <!-- Accordions -->
