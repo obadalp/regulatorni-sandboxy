@@ -18,11 +18,11 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Noto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Noto+Serif:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#404040","on-tertiary":"#ffffff","secondary-fixed-dim":"#0d6e7e","inverse-on-surface":"#f3f0f0",background:"#fbf9f8",secondary:"#c44536","surface-variant":"#e4e2e1","on-primary-container":"#c4d1b0","inverse-surface":"#303030","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-secondary-container":"#a23825","surface-dim":"#dcd9d9",outline:"#76786f",error:"#ba1a1a","outline-variant":"#c6c7bc","on-tertiary-container":"#cecbcb","surface-container":"#eae8e4","on-surface-variant":"#45483f","on-surface":"#1b1c1c","on-background":"#1b1c1c","surface-container-low":"#f5f3ef","surface-container-highest":"#e4e2e1","primary-fixed-dim":"#c4c4c4","surface-tint":"#404040","secondary-container":"#f3d5cc","on-primary":"#ffffff",primary:"#2a2a2a","on-secondary":"#ffffff","tertiary-container":"#575656",tertiary:"#3f3f3f","inverse-primary":"#c4c4c4","surface-bright":"#fbf9f8","on-error":"#ffffff","on-error-container":"#93000a",surface:"#fbf9f8","primary-fixed":"#e0e0e0","secondary-fixed":"#f3d5cc","surface-container-high":"#e0ddd7"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Noto Serif"],body:["Plus Jakarta Sans"],label:["Inter"]}}}}</script>
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#404040","on-tertiary":"#ffffff","secondary-fixed-dim":"#0d6e7e","inverse-on-surface":"#f3f0f0",background:"#fbf9f8",secondary:"#c44536","surface-variant":"#e4e2e1","on-primary-container":"#c4d1b0","inverse-surface":"#303030","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-secondary-container":"#a23825","surface-dim":"#dcd9d9",outline:"#76786f",error:"#ba1a1a","outline-variant":"#c6c7bc","on-tertiary-container":"#cecbcb","surface-container":"#eae8e4","on-surface-variant":"#45483f","on-surface":"#1b1c1c","on-background":"#1b1c1c","surface-container-low":"#f5f3ef","surface-container-highest":"#e4e2e1","primary-fixed-dim":"#c4c4c4","surface-tint":"#404040","secondary-container":"#f3d5cc","on-primary":"#ffffff",primary:"#2a2a2a","on-secondary":"#ffffff","tertiary-container":"#575656",tertiary:"#3f3f3f","inverse-primary":"#c4c4c4","surface-bright":"#fbf9f8","on-error":"#ffffff","on-error-container":"#93000a",surface:"#fbf9f8","primary-fixed":"#e0e0e0","secondary-fixed":"#f3d5cc","surface-container-high":"#e0ddd7"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Fraunces","Noto Serif","Georgia","serif"],serif:["Fraunces","Georgia","serif"],body:["Plus Jakarta Sans","system-ui","sans-serif"],mono:["JetBrains Mono","ui-monospace","monospace"],label:["Plus Jakarta Sans","system-ui","sans-serif"]}}}}</script>
 <style>
 /* Material icons */
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
@@ -49,7 +49,26 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .partner-btn--active .partner-chevron{transform:rotate(180deg);color:#38432a}
 
 /* =========== HEADER (from original) =========== */
-:root{--green:#c44536;--green-dark:#a23825;--green-deep:#1a1a1a;--green-soft:#f5f5f5;--ink:#1a1c18;--ink-2:#3a3d35;--muted:#6c6f65;--line:#e5e4dc;--font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Fraunces',Georgia,serif}
+:root{--green:#c44536;--green-dark:#a23825;--green-deep:#1a1a1a;--green-soft:#f5f5f5;--ink:#1a1a1a;--ink-2:#3a3d35;--muted:#6c6f65;--line:#e5e4dc;--font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Fraunces','Noto Serif',Georgia,serif}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-feature-settings:"tnum" 1}
+
+/* Section numbering — editorial eyebrow */
+.section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:500;margin-bottom:10px;text-transform:uppercase;display:block}
+
+/* Quick Facts strip */
+.qf{background:#1a1a1a;color:#fff;position:relative}
+.qf-inner{max-width:1320px;margin:0 auto;padding:28px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.qf-item{padding:6px 28px;border-left:1px solid rgba(255,255,255,.12)}
+.qf-item:first-child{border-left:0;padding-left:0}
+.qf-item .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:8px}
+.qf-item .v{font-family:'Fraunces','Noto Serif',Georgia,serif;font-weight:300;font-style:italic;font-size:28px;line-height:1.05;color:#fff;letter-spacing:-.02em}
+.qf-item .v strong{font-weight:500;font-style:normal;font-family:'Plus Jakarta Sans',system-ui,sans-serif;letter-spacing:-.01em}
+.qf-item .d{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.45}
+.qf-count{display:inline-flex;align-items:baseline;gap:6px;font-family:'JetBrains Mono',monospace;color:#fff;font-size:22px;font-weight:500;letter-spacing:-.02em}
+.qf-count span{display:inline-block}
+.qf-count .sep{color:rgba(255,255,255,.3);font-weight:300;padding:0 2px}
+.qf-count .u{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-left:2px}
+@media(max-width:900px){.qf-inner{grid-template-columns:repeat(2,1fr);gap:4px}.qf-item{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:18px 0}.qf-item:nth-child(1),.qf-item:nth-child(2){border-top:0}.qf-item:nth-child(2n){padding-left:24px;border-left:1px solid rgba(255,255,255,.12)}}
 .serif-it{font-family:var(--serif);font-weight:300;font-style:italic;letter-spacing:-.02em}
 .site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,padding .3s,box-shadow .3s}
 .site-header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
@@ -144,13 +163,41 @@ details[open] .acc-arrow{transform:rotate(180deg)}
   </div>
 </section>
 
+<!-- ===== QUICK FACTS STRIP ===== -->
+<section class="qf" aria-label="Projekt v číslech">
+  <div class="qf-inner">
+    <div class="qf-item">
+      <div class="k">Zákon</div>
+      <div class="v"><strong>328/2025</strong> Sb.</div>
+      <div class="d">Kontrolované testovací prostředí v&nbsp;ČR</div>
+    </div>
+    <div class="qf-item">
+      <div class="k">Resortů</div>
+      <div class="v"><strong>14</strong> <em>+ 17</em></div>
+      <div class="d">Ministerstev a&nbsp;dalších ústředních orgánů</div>
+    </div>
+    <div class="qf-item">
+      <div class="k">Zákonů v DEPO II</div>
+      <div class="v"><strong>70<em>+</em></strong></div>
+      <div class="d">Složkových zákonů k&nbsp;novelizaci</div>
+    </div>
+    <div class="qf-item">
+      <div class="k">Do deadline EU</div>
+      <div class="qf-count" id="qf-countdown" aria-live="polite">
+        <span data-u="d">—</span><span class="u">dní</span><span class="sep">·</span><span data-u="h">—</span><span class="u">h</span>
+      </div>
+      <div class="d">AI Act, čl. 57 · <strong style="color:#fff">2. srpna 2026</strong></div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CO JE SANDBOX ===== -->
 <section id="sandbox" class="py-24 md:py-32 px-6 md:px-16 bg-surface-container-low">
 <div class="max-w-[1440px] mx-auto">
 <div class="editorial-grid mb-16">
 <div class="col-span-12 lg:col-span-5">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Základní koncept</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Co je regulační prostředí?</h2>
+<span class="section-num">01 / Základní koncept</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Co je <em style="color:var(--green)">regulační prostředí</em>?</h2>
 </div>
 <div class="col-span-12 lg:col-span-7 flex flex-col justify-center">
 <p class="text-lg text-on-surface-variant leading-relaxed mb-6">
@@ -238,8 +285,8 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="max-w-[1440px] mx-auto">
 <div class="mb-16 flex flex-col md:flex-row justify-between md:items-end gap-6">
 <div class="max-w-2xl">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Klasifikace</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Typologie a přístupy</h2>
+<span class="section-num">02 / Klasifikace</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic"><em style="color:var(--green)">Typologie</em> a přístupy</h2>
 <p class="text-on-surface-variant text-lg">Podle klasifikace Chena a&nbsp;Taeighagha (2024) rozlišujeme tři funkční typy podle hlavního účelu.</p>
 </div>
 <div class="w-24 h-px bg-primary opacity-20 hidden md:block"></div>
@@ -309,8 +356,8 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="max-w-[1440px] mx-auto">
 <div class="editorial-grid mb-16 md:mb-24">
 <div class="col-span-12 lg:col-span-5">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Životní cyklus</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Jak vzniká sandbox</h2>
+<span class="section-num">03 / Životní cyklus</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Jak vzniká <em style="color:var(--green)">sandbox</em></h2>
 <p class="text-on-surface-variant">Od prvního nápadu po přenesení zkušeností do legislativy. Vycházíme ze zákona 328/2025 Sb. a&nbsp;zahraničních zkušeností.</p>
 </div>
 <div class="col-span-12 lg:col-span-7 lg:pl-12 flex">
@@ -385,8 +432,8 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <section id="osa" class="py-24 md:py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/10">
 <div class="max-w-[1440px] mx-auto">
 <div class="max-w-2xl mb-16 md:mb-24">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Chronologie</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Kde se nacházíme</h2>
+<span class="section-num">04 / Chronologie</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Kde se <em style="color:var(--green)">nacházíme</em></h2>
 <p class="text-on-surface-variant text-lg leading-relaxed">Klíčové milníky od roku 2018 po plánované aktivity.</p>
 </div>
 <div class="relative">
@@ -555,8 +602,8 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <!-- Hlavička sekce (editorial layout) -->
 <div class="editorial-grid mb-12">
 <div class="col-span-12 lg:col-span-5">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Spolupráce</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Spolupracující instituce</h2>
+<span class="section-num">05 / Spolupráce</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Spolupracující <em style="color:var(--green)">instituce</em></h2>
 <p class="text-on-surface-variant text-sm inline-flex items-center gap-2"><span class="material-symbols-outlined text-base text-secondary">touch_app</span> Kliknutím na logo si zobrazíte popis role.</p>
 </div>
 <div class="col-span-12 lg:col-span-7 lg:pl-12 flex flex-col sm:flex-row gap-4 justify-end items-center">
@@ -731,8 +778,8 @@ Ozvěte se nám
 <section id="tym" class="py-24 md:py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/10">
 <div class="max-w-[1440px] mx-auto">
 <div class="mb-16">
-<span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">Lidé za projektem</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Náš tým</h2>
+<span class="section-num">06 / Lidé za projektem</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Náš <em style="color:var(--green)">tým</em></h2>
 <p class="text-on-surface-variant">Realizátor: <a href="https://www.aqe.cz" target="_blank" class="text-primary font-semibold underline">AQE advisors, a.s.</a></p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -787,8 +834,8 @@ Ozvěte se nám
 <div class="max-w-[1240px] mx-auto">
 <div class="editorial-grid">
 <div class="col-span-12 lg:col-span-5">
-<span class="font-label uppercase tracking-[0.2em] text-xs font-semibold mb-4 block opacity-70">Spolupráce</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám svůj podnět</h2>
+<span class="section-num" style="color:rgba(255,255,255,.7)">07 / Spolupráce</span>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám <em style="color:var(--green)">svůj podnět</em></h2>
 <p class="opacity-85 leading-relaxed mb-8">Máte nápad na využití regulačního prostředí? Chcete se zapojit? Máte zkušenost ze&nbsp;zahraničí? Každý podnět pečlivě vyhodnotíme.</p>
 <div class="space-y-4 text-sm mb-12">
 <div><strong class="block mb-1">Nápad / Námět</strong><span class="opacity-75">Obecná myšlenka nebo pozorování, které by mohlo vést k&nbsp;regulačnímu prostředí.</span></div>
@@ -1026,6 +1073,27 @@ Odeslat podnět
 })();
 </script>
 
+<!-- Countdown do AI Act deadline -->
+<script>
+(function(){
+  var target = new Date('2026-08-02T00:00:00+02:00').getTime();
+  var root = document.getElementById('qf-countdown');
+  if(!root) return;
+  var ns = root.querySelectorAll('span[data-u]');
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var map = {d:d, h:h};
+    ns.forEach(function(el){
+      var v = map[el.dataset.u];
+      el.textContent = v;
+    });
+  }
+  tick();
+  setInterval(tick, 60000); // update jednou za minutu (stačí pro dny/hodiny)
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
