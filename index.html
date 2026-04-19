@@ -38,15 +38,20 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-/* Partner logo buttons — flat row with click-to-reveal */
-.partner-btn{cursor:pointer;background:none;border:0;padding:8px 12px;border-radius:8px;transition:transform .25s ease,background-color .25s ease;font-family:inherit}
-.partner-btn:hover{transform:translateY(-2px);background:rgba(56,67,42,.04)}
-.partner-btn:focus-visible{outline:2px solid #38432a;outline-offset:4px}
-.partner-btn--active{background:rgba(56,67,42,.08);transform:translateY(-2px)}
-.partner-btn--active .font-headline{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:#38432a}
-.partner-chevron{transition:transform .3s ease,color .25s ease;font-size:20px!important}
-.partner-btn:hover .partner-chevron{color:#38432a}
-.partner-btn--active .partner-chevron{transform:rotate(180deg);color:#38432a}
+/* Partner kompaktní karty */
+.partner-card{cursor:pointer;background:#fff;border:1px solid rgba(26,26,26,.08);padding:22px 18px 20px;border-radius:4px;transition:transform .25s ease,background-color .25s ease,border-color .2s ease;font-family:inherit;text-align:left;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.partner-card:hover{transform:translateY(-3px);border-color:rgba(26,26,26,.22)}
+.partner-card:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.partner-card--active{background:#1a1a1a!important;border-color:#1a1a1a!important}
+.partner-card--active .p-code{color:#fff}
+.partner-card--active .p-role{color:rgba(255,255,255,.7)}
+.partner-card .p-code{font-family:'Fraunces','Noto Serif',serif;font-weight:500;font-size:22px;color:#1a1a1a;letter-spacing:-.02em;line-height:1}
+.partner-card .p-role{display:block;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:8px;font-weight:500}
+.partner-card .p-status{position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:999px}
+.ps-active{background:#16a34a}
+.ps-pending{background:#eab308}
+.ps-confirmed{background:var(--green)}
+.ps-planned{background:rgba(26,26,26,.2)}
 
 /* =========== HEADER (from original) =========== */
 :root{--green:#c44536;--green-dark:#a23825;--green-deep:#1a1a1a;--green-soft:#f5f5f5;--ink:#1a1a1a;--ink-2:#3a3d35;--muted:#6c6f65;--line:#e5e4dc;--font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Fraunces','Noto Serif',Georgia,serif}
@@ -54,6 +59,31 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 
 /* Section numbering — editorial eyebrow */
 .section-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:500;margin-bottom:10px;text-transform:uppercase;display:block}
+
+/* Typologie — editorial rows */
+.type-rows{display:flex;flex-direction:column}
+.type-row{display:grid;grid-template-columns:180px 1fr;gap:48px;padding:36px 0;border-top:1px solid rgba(26,26,26,.1);align-items:start}
+.type-row:first-child{border-top:1px solid rgba(26,26,26,.25)}
+.type-row:last-child{border-bottom:1px solid rgba(26,26,26,.1)}
+@media(max-width:768px){.type-row{grid-template-columns:1fr;gap:20px;padding:28px 0}}
+.type-row__num{position:sticky;top:120px;display:flex;flex-direction:column;gap:12px}
+.type-row__num .mono{font-size:11px;letter-spacing:.18em;color:var(--green);font-weight:500;text-transform:uppercase}
+.type-row__big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:88px;line-height:.85;color:#1a1a1a;letter-spacing:-.04em}
+.type-row__title{font-family:'Fraunces','Noto Serif',serif;font-weight:400;font-style:italic;font-size:38px;line-height:1.05;letter-spacing:-.02em;color:#1a1a1a;margin-bottom:14px}
+.type-row__desc{font-size:16px;line-height:1.65;color:var(--ink-2);margin-bottom:18px;max-width:62ch}
+.type-row__desc em{color:var(--green);font-weight:500}
+.type-row__ex{padding-top:14px;border-top:1px dashed rgba(26,26,26,.15);display:flex;gap:14px;align-items:baseline;font-size:14px;color:var(--muted);max-width:68ch}
+.type-row__ex-label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600;flex-shrink:0;padding-top:2px}
+.type-row__ex strong{color:#1a1a1a;font-weight:600}
+
+/* Approaches dark block (3 přístupy) */
+.approaches{position:relative;background:#1a1a1a;color:#fff;border-radius:4px;padding:56px 40px;overflow:hidden}
+.approaches::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,69,54,.18) 0%,transparent 60%);pointer-events:none}
+.approach-col h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;margin-bottom:14px;color:#fff}
+.approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:var(--green);margin-bottom:20px;letter-spacing:-.02em}
+.approach-col p{color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.55;margin-bottom:12px}
+.approach-col .out{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(255,255,255,.18);border-radius:2px;font-size:12px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.03)}
+.approach-col .out .material-symbols-outlined{font-size:14px;color:var(--green)}
 
 /* Quick Facts strip */
 .qf{background:#1a1a1a;color:#fff;position:relative}
@@ -292,61 +322,74 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="w-24 h-px bg-primary opacity-20 hidden md:block"></div>
 </div>
 
-<!-- 3 typy -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 items-start">
-<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
-<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">01</span>
-<h3 class="font-headline text-2xl mb-3">Průzkumný</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Objevování a&nbsp;testování nových řešení, kde regulátor teprve získává zkušenosti.</p>
-<details>
-<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
-<p class="mt-2 text-xs text-on-surface-variant">CzechInvest — spolupráce s&nbsp;firmami na finančních trzích, kde se hledá cesta, jak vyhovět stávající legislativě.</p>
-</details>
-</div>
-<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
-<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">02</span>
-<h3 class="font-headline text-2xl mb-3">Potvrzující</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Ověření, že již vyvinuté řešení funguje a&nbsp;může být bezpečně nasazeno do praxe.</p>
-<details>
-<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
-<p class="mt-2 text-xs text-on-surface-variant">Španělský AI sandbox — ověření před přijetím celoevropské legislativy.</p>
-</details>
-</div>
-<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
-<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">03</span>
-<h3 class="font-headline text-2xl mb-3">Na poptávku</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Regulátor sám vymezuje prioritní témata a&nbsp;motivuje k&nbsp;experimentům.</p>
-<details>
-<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
-<p class="mt-2 text-xs text-on-surface-variant">Singapur — telemedicína jako prioritní oblast testování.</p>
-</details>
-</div>
+<!-- 3 typy — editorial rows (horizontal stacked layout) -->
+<div class="type-rows mb-20">
+  <div class="type-row reveal">
+    <div class="type-row__num"><span class="mono">Typ 01</span><div class="type-row__big">I</div></div>
+    <div class="type-row__body">
+      <h3 class="type-row__title">Průzkumný</h3>
+      <p class="type-row__desc">Objevování a&nbsp;testování nových řešení, kde regulátor teprve získává zkušenosti. Široký prostor pro experimentování, důraz na <em>regulatorní učení</em>.</p>
+      <div class="type-row__ex">
+        <span class="type-row__ex-label">Příklad</span>
+        <span><strong>CzechInvest</strong> — spolupráce s&nbsp;firmami na&nbsp;finančních trzích, hledá se cesta, jak vyhovět stávající legislativě.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="type-row reveal">
+    <div class="type-row__num"><span class="mono">Typ 02</span><div class="type-row__big">II</div></div>
+    <div class="type-row__body">
+      <h3 class="type-row__title">Potvrzující</h3>
+      <p class="type-row__desc">Ověření, že&nbsp;již vyvinuté řešení funguje a&nbsp;může být bezpečně nasazeno do&nbsp;praxe. Experimenty probíhají podle <em>předem stanovených kritérií</em>.</p>
+      <div class="type-row__ex">
+        <span class="type-row__ex-label">Příklad</span>
+        <span><strong>Španělský AI sandbox</strong> — ověření přístupu před přijetím celoevropské legislativy.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="type-row reveal">
+    <div class="type-row__num"><span class="mono">Typ 03</span><div class="type-row__big">III</div></div>
+    <div class="type-row__body">
+      <h3 class="type-row__title">Na&nbsp;poptávku</h3>
+      <p class="type-row__desc">Regulátor sám vymezuje prioritní témata a&nbsp;motivuje k&nbsp;experimentům. <em>Definuje témata</em>, poskytuje pobídky (granty, podporu).</p>
+      <div class="type-row__ex">
+        <span class="type-row__ex-label">Příklad</span>
+        <span><strong>Singapur</strong> — ministerstvo zdravotnictví vymezilo telemedicínu jako prioritní oblast testování.</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- 3 přístupy — tmavý blok -->
-<div class="bg-primary text-on-primary rounded-3xl p-10 md:p-16 editorial-grid relative overflow-hidden">
-<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none"><svg class="w-full h-full fill-current" viewBox="0 0 100 100"><circle cx="100" cy="0" r="80"/></svg></div>
-<div class="col-span-12 lg:col-span-4">
-<p class="text-xs uppercase tracking-widest opacity-50 mb-3">Podle Leckenby a kol. (2021)</p>
-<h3 class="font-headline text-3xl md:text-4xl italic mb-4">Tři přístupy k experimentu</h3>
-</div>
-<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-<div>
-<h4 class="font-bold text-lg mb-2 tracking-wide">PORADNÍ</h4>
-<p class="text-on-primary/70 text-sm leading-loose mb-2">Pomoci novým produktům splnit stávající předpisy.</p>
-<p class="text-on-primary/40 text-xs">Výsledek: mění se produkt, ne regulace.</p>
-</div>
-<div>
-<h4 class="font-bold text-lg mb-2 tracking-wide">ADAPTIVNÍ</h4>
-<p class="text-on-primary/70 text-sm leading-loose mb-2">Přizpůsobení stávajících předpisů novému řešení.</p>
-<p class="text-on-primary/40 text-xs">Výsledek: mění se produkt i politika.</p>
-</div>
-<div>
-<h4 class="font-bold text-lg mb-2 tracking-wide">PŘEDVÍDAVÝ</h4>
-<p class="text-on-primary/70 text-sm leading-loose mb-2">Vyvíjet předpisy souběžně s vývojem produktů.</p>
-<p class="text-on-primary/40 text-xs">Výsledek: vzniká zcela nová regulace.</p>
-</div>
-</div>
+<!-- 3 přístupy — dark editorial block s A./B./C. -->
+<div class="approaches">
+  <div class="editorial-grid" style="position:relative;z-index:1">
+    <div class="col-span-12 lg:col-span-4">
+      <div class="section-num" style="color:var(--green)">Podle Leckenby a&nbsp;kol. (2021)</div>
+      <h3 class="font-headline" style="font-family:var(--serif);font-weight:300;font-style:italic;font-size:40px;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-top:10px">Tři přístupy<br>k&nbsp;experimentu</h3>
+      <p style="color:rgba(255,255,255,.6);margin-top:14px;font-size:14px;line-height:1.6">Rozdíl je v&nbsp;tom, <em>co&nbsp;se&nbsp;nakonec mění</em> — produkt, politika, nebo obojí najednou.</p>
+    </div>
+    <div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-10 mt-8 lg:mt-0">
+      <div class="approach-col">
+        <div class="big">A.</div>
+        <h4>PORADNÍ</h4>
+        <p>Pomoci novým produktům splnit stávající předpisy.</p>
+        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Mění se <strong style="color:#fff;margin-left:4px">produkt</strong></span>
+      </div>
+      <div class="approach-col">
+        <div class="big">B.</div>
+        <h4>ADAPTIVNÍ</h4>
+        <p>Přizpůsobení stávajících předpisů novému řešení.</p>
+        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Mění se <strong style="color:#fff;margin-left:4px">produkt&nbsp;i&nbsp;politika</strong></span>
+      </div>
+      <div class="approach-col">
+        <div class="big">C.</div>
+        <h4>PŘEDVÍDAVÝ</h4>
+        <p>Vyvíjet předpisy souběžně s&nbsp;vývojem produktů.</p>
+        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Vzniká <strong style="color:#fff;margin-left:4px">nová regulace</strong></span>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -626,44 +669,46 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 </div>
 </div>
 
-<div class="text-center">
-<div class="flex flex-wrap justify-center gap-10 md:gap-16 mb-10" id="partners-row">
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="mpsv" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">MPSV</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Práce a sociální věci</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">Jednáme</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="mpo" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">MPO</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Průmysl a obchod</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700">Aktivní</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="tacr" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">TAČR</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Technologická agentura</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700">Aktivní</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="asz" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">ASZ</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Sociální začleňování</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary">Potvrzeno</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="as" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">MĚSTO AŠ</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Pilotní území</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary">Potvrzeno</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
-<button type="button" class="partner-btn flex flex-col items-center focus:outline-none" data-partner="mzp" aria-controls="partner-detail" aria-expanded="false">
-<span class="font-headline text-2xl font-bold tracking-tighter text-primary">MŽP</span>
-<span class="text-[10px] tracking-widest uppercase mt-2 text-outline">Životní prostředí</span>
-<span class="text-[10px] mt-1 px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">Plánováno</span>
-<span class="partner-chevron material-symbols-outlined text-primary/50 text-base mt-2">expand_more</span>
-</button>
+<!-- Partneři — kompaktní karty -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10" id="partners-row">
+  <button type="button" class="partner-card" data-partner="mpsv" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-pending" title="Jednáme"></span>
+    <span class="p-code">MPSV</span>
+    <span class="p-role">Práce a&nbsp;soc. věci</span>
+  </button>
+  <button type="button" class="partner-card" data-partner="mpo" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-active" title="Aktivní"></span>
+    <span class="p-code">MPO</span>
+    <span class="p-role">Průmysl a&nbsp;obchod</span>
+  </button>
+  <button type="button" class="partner-card" data-partner="tacr" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-active" title="Aktivní"></span>
+    <span class="p-code">TAČR</span>
+    <span class="p-role">Tech. agentura</span>
+  </button>
+  <button type="button" class="partner-card" data-partner="asz" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-confirmed" title="Potvrzeno"></span>
+    <span class="p-code">ASZ</span>
+    <span class="p-role">Soc. začleňování</span>
+  </button>
+  <button type="button" class="partner-card" data-partner="as" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-confirmed" title="Potvrzeno"></span>
+    <span class="p-code">Aš</span>
+    <span class="p-role">Pilotní území</span>
+  </button>
+  <button type="button" class="partner-card" data-partner="mzp" aria-controls="partner-detail" aria-expanded="false">
+    <span class="p-status ps-planned" title="Plánováno"></span>
+    <span class="p-code">MŽP</span>
+    <span class="p-role">Životní prostředí</span>
+  </button>
+</div>
+
+<!-- Legenda statusů -->
+<div class="flex flex-wrap gap-4 justify-center text-xs text-outline mb-6">
+  <span class="inline-flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full" style="background:#16a34a"></span>Aktivní</span>
+  <span class="inline-flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full" style="background:#eab308"></span>Jednáme</span>
+  <span class="inline-flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full" style="background:var(--green)"></span>Potvrzeno</span>
+  <span class="inline-flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full" style="background:rgba(26,26,26,.3)"></span>Plánováno</span>
 </div>
 
 <!-- Detail panel: zobrazí popis vybraného partnera -->
@@ -719,7 +764,7 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
   var tEl = document.getElementById('pd-title');
   var sEl = document.getElementById('pd-subtitle');
   var bEl = document.getElementById('pd-body');
-  var buttons = document.querySelectorAll('.partner-btn');
+  var buttons = document.querySelectorAll('.partner-card');
   var current = null;
   function open(key){
     var d = data[key]; if(!d) return;
@@ -736,7 +781,7 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
     buttons.forEach(function(b){
       var on = b.dataset.partner === key;
       b.setAttribute('aria-expanded', on ? 'true' : 'false');
-      b.classList.toggle('partner-btn--active', on);
+      b.classList.toggle('partner-card--active', on);
     });
     current = key;
   }
@@ -744,7 +789,7 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
     panel.style.maxHeight = '0';
     panel.style.opacity = '0';
     panel.style.marginTop = '0';
-    buttons.forEach(function(b){ b.setAttribute('aria-expanded','false'); b.classList.remove('partner-btn--active'); });
+    buttons.forEach(function(b){ b.setAttribute('aria-expanded','false'); b.classList.remove('partner-card--active'); });
     current = null;
   }
   buttons.forEach(function(b){
@@ -757,16 +802,16 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 })();
 </script>
 
-<!-- CTA pás -->
-<div class="max-w-[1240px] mx-auto mt-16 bg-primary text-on-primary rounded-xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between reveal">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary-fixed-dim text-3xl flex-shrink-0">diversity_3</span>
+<!-- CTA pás — široký -->
+<div class="max-w-[1440px] mx-auto mt-20 bg-primary text-on-primary rounded-xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center gap-8 justify-between reveal">
+<div class="flex items-start gap-5 flex-1">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl flex-shrink-0">diversity_3</span>
 <div>
-<h3 class="font-headline text-xl md:text-2xl italic mb-1">Chcete se zapojit?</h3>
-<p class="text-sm opacity-85">Hledáme další ministerstva, regulátory, inovační aktéry a&nbsp;samosprávy pro budování sítě sandboxů v&nbsp;ČR.</p>
+<h3 class="font-headline text-2xl md:text-3xl italic mb-2">Chcete se zapojit?</h3>
+<p class="opacity-85 leading-relaxed max-w-2xl">Hledáme další ministerstva, regulátory, inovační aktéry a&nbsp;samosprávy pro budování sítě sandboxů v&nbsp;ČR. Rádi se s&nbsp;vámi potkáme a&nbsp;probereme možnosti spolupráce.</p>
 </div>
 </div>
-<a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary-fixed-dim text-primary font-semibold hover:bg-white transition-colors whitespace-nowrap flex-shrink-0">
+<a href="#kontakt" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-secondary-fixed-dim text-primary font-semibold hover:bg-white transition-colors whitespace-nowrap flex-shrink-0">
 <span class="material-symbols-outlined text-base">mail</span>
 Ozvěte se nám
 </a>
