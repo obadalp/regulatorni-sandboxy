@@ -160,13 +160,13 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .lifecycle-block{position:relative;background:#1a1a1a;color:#fff;border-radius:8px;padding:56px 40px;overflow:hidden}
 .lifecycle-block::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,69,54,.18) 0%,transparent 60%);pointer-events:none}
 .lifecycle-block > *{position:relative;z-index:1}
-.lifecycle-num{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:1;color:#e88b6d;margin-bottom:18px;letter-spacing:-.03em;position:relative;z-index:10}
+.lifecycle-num{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:1;color:var(--green);margin-bottom:18px;letter-spacing:-.03em;position:relative;z-index:10}
 
 /* Approaches dark block (3 přístupy) */
 .approaches{position:relative;background:#1a1a1a;color:#fff;border-radius:8px;padding:56px 40px;overflow:hidden}
 .approaches::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,69,54,.18) 0%,transparent 60%);pointer-events:none}
 .approach-col h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;margin-bottom:14px;color:#fff}
-.approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:#e88b6d;margin-bottom:20px;letter-spacing:-.02em}
+.approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:var(--green);margin-bottom:20px;letter-spacing:-.02em}
 .approach-col p{color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.55;margin-bottom:12px}
 .approach-col .approach-out{color:rgba(255,255,255,.45);font-size:12.5px;margin-top:4px;line-height:1.5}
 
@@ -196,8 +196,8 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .globe-pop .kv{display:flex;gap:8px;font-size:11.5px;color:rgba(255,255,255,.65);margin-top:2px}
 .globe-pop .kv strong{color:#fff;font-weight:500}
 .globe-pop .body{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.8);margin-top:10px}
-.globe-pop .pop-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:500;color:#e88b6d;text-decoration:none;letter-spacing:.01em;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s}
-.globe-pop .pop-link:hover{color:#f5a58c;border-bottom-color:#f5a58c}
+.globe-pop .pop-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:500;color:var(--green);text-decoration:none;letter-spacing:.01em;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s}
+.globe-pop .pop-link:hover{color:#e88b6d;border-bottom-color:#e88b6d}
 .globe-pop .pop-link .material-symbols-outlined{font-size:15px}
 .globe-pop .closer{position:absolute;top:6px;right:8px;width:22px;height:22px;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;line-height:1;border:0;background:transparent}
 .globe-pop .closer:hover{color:#fff}
@@ -218,21 +218,21 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 /* Kontaktní strip — místo Quick Facts, pod hero sekcí */
 .contact-strip{background:#1a1a1a;color:#fff;position:relative;overflow:hidden}
 .contact-strip::before{content:'';position:absolute;top:-40%;right:-15%;width:55%;height:180%;background:radial-gradient(ellipse at center,rgba(196,69,54,.16) 0%,transparent 60%);pointer-events:none}
-.contact-strip__inner{position:relative;max-width:1320px;margin:0 auto;padding:40px 32px;display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center}
+.contact-strip__inner{position:relative;max-width:1320px;margin:0 auto;padding:56px 32px;display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
 .contact-strip__brand{display:flex;align-items:center;gap:16px;flex-shrink:0}
-.cs-logo{height:52px;width:auto;display:block;filter:brightness(0) invert(1)}
-.cs-tagline{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:22px;line-height:1.1;color:rgba(255,255,255,.75);padding-left:16px;border-left:1px solid rgba(255,255,255,.2);white-space:nowrap}
+.cs-logo{height:156px;width:auto;display:block;filter:brightness(0) invert(1)}
+.cs-tagline{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:26px;line-height:1.1;color:rgba(255,255,255,.75);padding-left:20px;border-left:1px solid rgba(255,255,255,.2);white-space:nowrap}
 .contact-strip__copy{min-width:0}
 .cs-title{font-family:'Fraunces','Noto Serif',Georgia,serif;font-weight:300;font-size:clamp(26px,2.6vw,36px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
-.cs-title em{font-style:italic;color:#e88b6d;font-weight:300}
+.cs-title em{font-style:italic;color:var(--green);font-weight:300}
 .cs-lead{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
 .cs-people{margin:14px 0 0;padding:0;list-style:none;display:flex;gap:28px;flex-wrap:wrap}
 .cs-people li{margin:0}
 .cs-people a{display:flex;flex-direction:column;text-decoration:none;border-left:2px solid rgba(255,255,255,.2);padding-left:12px;transition:border-color .2s}
-.cs-people a:hover{border-left-color:#e88b6d}
+.cs-people a:hover{border-left-color:var(--green)}
 .cs-person-name{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-.005em;line-height:1.2}
 .cs-person-role{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:2px}
-.cs-people a:hover .cs-person-name{color:#e88b6d}
+.cs-people a:hover .cs-person-name{color:var(--green)}
 .cs-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;background:var(--green);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.01em;transition:background .2s;white-space:nowrap;flex-shrink:0}
 .cs-cta:hover{background:var(--green-dark)}
 .cs-cta .material-symbols-outlined{font-size:19px}
@@ -499,7 +499,7 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="approaches">
   <div class="editorial-grid" style="position:relative;z-index:1">
     <div class="col-span-12 lg:col-span-4">
-      <div class="section-num" style="color:#e88b6d">Podle Leckenby a&nbsp;kol. (2021)</div>
+      <div class="section-num" style="color:var(--green)">Podle Leckenby a&nbsp;kol. (2021)</div>
       <h3 class="font-headline" style="font-family:var(--serif);font-weight:300;font-style:italic;font-size:40px;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-top:10px">Tři přístupy<br>k&nbsp;experimentu</h3>
       <p style="color:rgba(255,255,255,.6);margin-top:14px;font-size:14px;line-height:1.6">Rozdíl je v&nbsp;tom, <em>co&nbsp;se&nbsp;nakonec mění</em> — produkt, politika, nebo obojí najednou.</p>
     </div>
@@ -1033,7 +1033,6 @@ Ozvěte se nám
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">RB</div>
 <h4 class="font-headline text-lg font-bold">Rut Bízková</h4>
 <p class="text-primary text-xs font-semibold mb-2">Regulatorní prostředí</p>
 <details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Rut<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
@@ -1041,7 +1040,6 @@ Ozvěte se nám
 </details>
 </div>
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JH</div>
 <h4 class="font-headline text-lg font-bold">Jan Havránek</h4>
 <p class="text-primary text-xs font-semibold mb-2">Strategický rozvoj</p>
 <details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Janovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
@@ -1049,7 +1047,6 @@ Ozvěte se nám
 </details>
 </div>
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JP</div>
 <h4 class="font-headline text-lg font-bold">Jan Pavelka</h4>
 <p class="text-primary text-xs font-semibold mb-2">Vedoucí projektu</p>
 <details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Janovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
@@ -1057,7 +1054,6 @@ Ozvěte se nám
 </details>
 </div>
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">DB</div>
 <h4 class="font-headline text-lg font-bold">Daniel Bečvář</h4>
 <p class="text-primary text-xs font-semibold mb-2">Výzkum a analýzy</p>
 <details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Danielovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
@@ -1065,13 +1061,11 @@ Ozvěte se nám
 </details>
 </div>
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">KK</div>
 <h4 class="font-headline text-lg font-bold">Kateřina Kusáková</h4>
 <p class="text-primary text-xs font-semibold mb-2">Projektová podpora</p>
 <p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
 </div>
 <div class="bg-surface p-6 rounded-xl reveal">
-<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">AŠ</div>
 <h4 class="font-headline text-lg font-bold">Aneta Šmerdová</h4>
 <p class="text-primary text-xs font-semibold mb-2">Projektová podpora</p>
 <p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
@@ -1086,7 +1080,7 @@ Ozvěte se nám
 <div class="editorial-grid">
 <div class="col-span-12 lg:col-span-5">
 <span class="section-num" style="color:rgba(255,255,255,.7)">08 / Kontakt</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám <em style="color:#e88b6d">svůj podnět</em></h2>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám <em style="color:var(--green)">svůj podnět</em></h2>
 <p class="opacity-85 leading-relaxed mb-8">Máte nápad na využití regulačního prostředí? Chcete se zapojit? Máte zkušenost ze&nbsp;zahraničí? Každý podnět pečlivě vyhodnotíme.</p>
 <div class="space-y-4 text-sm mb-12">
 <div><strong class="block mb-1">Nápad / Námět</strong><span class="opacity-75">Obecná myšlenka nebo pozorování, které by mohlo vést k&nbsp;regulačnímu prostředí.</span></div>
@@ -1100,22 +1094,22 @@ Ozvěte se nám
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Havránek</div>
 <div class="text-xs opacity-70 mb-2">Strategický rozvoj</div>
-<a href="mailto:havranek@AQE.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">havranek@AQE.cz</a>
+<a href="mailto:havranek@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">havranek@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Pavelka</div>
 <div class="text-xs opacity-70 mb-2">Vedoucí projektu</div>
-<a href="mailto:pavelka@AQE.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">pavelka@AQE.cz</a>
+<a href="mailto:pavelka@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">pavelka@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Daniel Bečvář</div>
 <div class="text-xs opacity-70 mb-2">Výzkum a analýzy</div>
-<a href="mailto:becvar@i-lab.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">becvar@i-lab.cz</a>
+<a href="mailto:becvar@i-lab.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">becvar@i-lab.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Rut Bízková</div>
 <div class="text-xs opacity-70 mb-2">Regulatorní prostředí</div>
-<span class="text-sm opacity-60">kontakt k&nbsp;doplnění</span>
+<a href="mailto:rut.bizkova@gmail.com" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">rut.bizkova@gmail.com</a>
 </li>
 </ul>
 </div>
@@ -1361,13 +1355,36 @@ Odeslat podnět
     var tab = (m.code === 'SG' || m.code === 'JP') ? 'asie'
             : (m.code === 'CZ') ? 'cesko' : 'evropa';
     gpLink.href = 'priklady-ze-zahranici/#' + tab;
-    // Position near click point, flip below marker if near top
+
+    // Změřit aktuální výšku popoveru (s novým obsahem) — render skryt
+    pop.style.transition = 'none';
+    pop.style.opacity = '0';
+    pop.classList.remove('below');
+    pop.classList.add('open');
+    var popH = pop.offsetHeight || 260;
+    var popW = pop.offsetWidth || 260;
+    pop.classList.remove('open');
+    pop.style.opacity = '';
+    // resetovat transition na příští frame
+    requestAnimationFrame(function(){ pop.style.transition = ''; });
+
     var stageRect = stage.getBoundingClientRect();
-    var x = Math.max(140, Math.min(stageRect.width - 140, pt.x));
-    // Pokud je marker moc nahoře (nad ~180 px od vrchu), popover zobrazíme pod ním
-    var flipBelow = pt.y < 180;
+    var pad = 12;
+    var x = Math.max(popW/2 + pad, Math.min(stageRect.width - popW/2 - pad, pt.x));
+
+    // Rozhodnout, kam popover otevřít — podle dostupného místa
+    var fitsAbove = pt.y >= popH + 20;
+    var fitsBelow = pt.y + popH + 32 <= stageRect.height;
+    var flipBelow = fitsBelow && (!fitsAbove || (stageRect.height - pt.y) > pt.y);
+
+    var y;
+    if (flipBelow) {
+      y = Math.min(pt.y + 12, stageRect.height - popH - 16);
+    } else {
+      y = Math.max(popH + 20, pt.y - 12);
+    }
+
     pop.classList.toggle('below', flipBelow);
-    var y = flipBelow ? pt.y + 12 : Math.max(190, pt.y - 12);
     pop.style.left = x + 'px';
     pop.style.top  = y + 'px';
     pop.classList.add('open');
