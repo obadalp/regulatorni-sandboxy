@@ -39,6 +39,7 @@ window.SandboxGlobe = function(canvas, cfg){
   let onClickEmpty = cfg && cfg.onClickEmpty || (()=>{});
   let hoveredMarker = -1;
   let selectedMarker = -1;
+  let hoverNearLine = false;
   let pulseT = 0;
 
   // ——— Barvy z naší palety ———
@@ -195,13 +196,16 @@ window.SandboxGlobe = function(canvas, cfg){
     for(let i=0;i<routes.length;i++){
       const rt = routes[i];
       const pts = rt._pts || (rt._pts = arcPoints(rt.a, rt.b));
+      // Kešujeme projekovaná screen‑points pro hit‑test
+      rt._screen = [];
       ctx.strokeStyle = COLORS.routeBase;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 2;
       ctx.beginPath();
       let s=false;
       for(const pt of pts){
         const p = project(pt.lon, pt.lat);
-        if(!p.v){ s=false; continue; }
+        if(!p.v){ s=false; rt._screen.push(null); continue; }
+        rt._screen.push([p.x, p.y]);
         if(!s){ ctx.moveTo(p.x,p.y); s=true; } else ctx.lineTo(p.x,p.y);
       }
       ctx.stroke();
@@ -213,7 +217,7 @@ window.SandboxGlobe = function(canvas, cfg){
     for(let i=0;i<markers.length;i++){
       const m = markers[i];
       const p = project(m.lon, m.lat);
-      if(!p.v) continue;
+      if(!p.v){ m._screen = null; continue; }
       m._screen = [p.x, p.y];
       const isHov = i===hoveredMarker;
       const isSel = i===selectedMarker;
@@ -221,8 +225,8 @@ window.SandboxGlobe = function(canvas, cfg){
 
       // Glow ring (pulzuje)
       const pulseScale = 1 + 0.25 * Math.sin(pulseT + i*0.7);
-      const glowR = 10 * pulseScale;
-      const glowAlpha = isCz ? 0.22 : 0.15;
+      const glowR = 13 * pulseScale;
+      const glowAlpha = isCz ? 0.26 : 0.18;
       ctx.fillStyle = isCz ? COLORS.czRing : COLORS.markerGlow;
       ctx.globalAlpha = glowAlpha * (2 - pulseScale);
       ctx.beginPath();
@@ -232,15 +236,15 @@ window.SandboxGlobe = function(canvas, cfg){
 
       // Outer ring
       ctx.strokeStyle = isCz ? COLORS.czRing : COLORS.markerRing;
-      ctx.lineWidth = isHov || isSel ? 1.5 : 1;
+      ctx.lineWidth = isHov || isSel ? 2 : 1.3;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, isHov || isSel ? 7 : 5, 0, Math.PI*2);
+      ctx.arc(p.x, p.y, isHov || isSel ? 9 : 7, 0, Math.PI*2);
       ctx.stroke();
 
       // Dot
       ctx.fillStyle = isCz ? COLORS.czHighlight : (isHov ? COLORS.markerHover : COLORS.markerFill);
       ctx.beginPath();
-      ctx.arc(p.x, p.y, isHov || isSel ? 3.5 : 2.8, 0, Math.PI*2);
+      ctx.arc(p.x, p.y, isHov || isSel ? 4.8 : 4, 0, Math.PI*2);
       ctx.fill();
     }
   }
@@ -255,13 +259,39 @@ window.SandboxGlobe = function(canvas, cfg){
   }
 
   function hitTestMarker(mx, my){
+    // Větší hit radius (~20 px) pro lepší klikatelnost
     for(let i=0;i<markers.length;i++){
       const m = markers[i];
       if(!m._screen) continue;
       const dx = mx-m._screen[0], dy=my-m._screen[1];
-      if(dx*dx+dy*dy < 100) return i;
+      if(dx*dx+dy*dy < 400) return i;
     }
     return -1;
+  }
+
+  // Vzdálenost bodu od úsečky
+  function distToSeg(px, py, x1, y1, x2, y2){
+    const A = px - x1, B = py - y1, C = x2 - x1, D = y2 - y1;
+    const dot = A*C + B*D;
+    const lenSq = C*C + D*D;
+    let t = lenSq > 0 ? dot/lenSq : -1;
+    t = Math.max(0, Math.min(1, t));
+    const xx = x1 + t*C, yy = y1 + t*D;
+    const dx = px-xx, dy = py-yy;
+    return Math.sqrt(dx*dx + dy*dy);
+  }
+
+  function hitTestRoute(mx, my){
+    for(const rt of routes){
+      const pts = rt._screen;
+      if(!pts) continue;
+      for(let i=0;i<pts.length-1;i++){
+        const p1 = pts[i], p2 = pts[i+1];
+        if(!p1 || !p2) continue;
+        if(distToSeg(mx, my, p1[0], p1[1], p2[0], p2[1]) < 6) return true;
+      }
+    }
+    return false;
   }
 
   canvas.addEventListener('pointerdown', e=>{
@@ -276,14 +306,21 @@ window.SandboxGlobe = function(canvas, cfg){
     if(dragging){
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
       if(Math.abs(dx)+Math.abs(dy) > 3) moved = true;
-      rot[0] = (rot[0] + dx * 0.4) % 360;
-      rot[1] = Math.max(-85, Math.min(85, rot[1] - dy * 0.4));
+      // Google‑Earth style: globus jde proti pohybu myši
+      rot[0] = (rot[0] - dx * 0.4) % 360;
+      rot[1] = Math.max(-85, Math.min(85, rot[1] + dy * 0.4));
       lastX = e.clientX; lastY = e.clientY;
     } else {
       const mi = hitTestMarker(mx, my);
       if(mi !== hoveredMarker){ hoveredMarker = mi; }
-      canvas.style.cursor = (mi >= 0) ? 'pointer' : 'grab';
+      // Při hoveru nad markerem nebo linkou — pauza rotace (ulehčí klik)
+      hoverNearLine = (mi < 0) && hitTestRoute(mx, my);
+      canvas.style.cursor = (mi >= 0) ? 'pointer' : (hoverNearLine ? 'help' : 'grab');
     }
+  });
+  canvas.addEventListener('pointerleave', ()=>{
+    hoveredMarker = -1;
+    hoverNearLine = false;
   });
   canvas.addEventListener('pointerup', e=>{
     dragging = false;
@@ -304,7 +341,8 @@ window.SandboxGlobe = function(canvas, cfg){
   }, { passive: false });
 
   function loop(){
-    if(autoSpin && !dragging) rot[0] = (rot[0] + 0.06) % 360;
+    const hoverPaused = hoveredMarker >= 0 || hoverNearLine || selectedMarker >= 0;
+    if(autoSpin && !dragging && !hoverPaused) rot[0] = (rot[0] + 0.06) % 360;
     draw();
     requestAnimationFrame(loop);
   }
@@ -323,8 +361,9 @@ window.SandboxGlobe = function(canvas, cfg){
     setSpin(v){ autoSpin = !!v; },
     zoomIn(){ zoom = Math.min(4, zoom*1.3); },
     zoomOut(){ zoom = Math.max(0.7, zoom/1.3); },
-    reset(){ zoom = 1; rot = [10,-20]; autoSpin = true; },
-    focusOn(lon, lat){ rot = [lon, lat]; autoSpin = false; }
+    reset(){ zoom = 1; rot = [10,-20]; autoSpin = true; selectedMarker = -1; },
+    focusOn(lon, lat){ rot = [lon, lat]; autoSpin = false; },
+    deselect(){ selectedMarker = -1; }
   };
 };
 
