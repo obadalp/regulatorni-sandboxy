@@ -234,52 +234,39 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 /* Kontaktní strip — místo Quick Facts, pod hero sekcí */
 .contact-strip{background:#1a1a1a;color:#fff;position:relative;overflow:hidden}
 .contact-strip::before{content:'';position:absolute;top:-40%;right:-15%;width:55%;height:180%;background:radial-gradient(ellipse at center,rgba(196,69,54,.16) 0%,transparent 60%);pointer-events:none}
-.contact-strip__inner{position:relative;max-width:1320px;margin:0 auto;padding:44px 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.contact-strip__left{max-width:520px}
-.cs-eyebrow{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:10px;display:block}
-.cs-title{font-family:'Fraunces','Noto Serif',Georgia,serif;font-weight:300;font-size:clamp(26px,3vw,40px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:0 0 14px}
+.contact-strip__inner{position:relative;max-width:1320px;margin:0 auto;padding:40px 32px;display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center}
+.contact-strip__brand{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.cs-logo{height:52px;width:auto;display:block;filter:brightness(0) invert(1)}
+.cs-tagline{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:22px;line-height:1.1;color:rgba(255,255,255,.75);padding-left:16px;border-left:1px solid rgba(255,255,255,.2);white-space:nowrap}
+.contact-strip__copy{min-width:0}
+.cs-title{font-family:'Fraunces','Noto Serif',Georgia,serif;font-weight:300;font-size:clamp(26px,2.6vw,36px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
 .cs-title em{font-style:italic;color:var(--green);font-weight:300}
-.cs-lead{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.75);margin:0}
-.contact-strip__right{display:flex;flex-direction:column;gap:18px}
-.cs-contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cs-contact{display:flex;flex-direction:column;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:6px;text-decoration:none;transition:border-color .2s,background .2s;background:rgba(255,255,255,.02)}
-.cs-contact:hover{border-color:rgba(196,69,54,.6);background:rgba(196,69,54,.06)}
-.cs-contact .cs-name{font-family:'Fraunces','Noto Serif',serif;font-style:italic;font-weight:400;font-size:18px;color:#fff;line-height:1.1;margin-bottom:2px}
-.cs-contact .cs-role{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:8px}
-.cs-contact .cs-mail{font-size:12.5px;color:var(--green);font-weight:500;font-family:'JetBrains Mono',monospace;letter-spacing:-.01em;word-break:break-all}
-.cs-contact:hover .cs-mail{color:#e88b6d}
-.cs-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;background:var(--green);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.01em;transition:background .2s;align-self:flex-start}
+.cs-lead{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.cs-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;background:var(--green);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.01em;transition:background .2s;white-space:nowrap;flex-shrink:0}
 .cs-cta:hover{background:var(--green-dark)}
 .cs-cta .material-symbols-outlined{font-size:19px}
 .cs-cta-arrow{transition:transform .2s}
 .cs-cta:hover .cs-cta-arrow{transform:translateX(3px)}
-@media(max-width:900px){
-  .contact-strip__inner{grid-template-columns:1fr;gap:28px;padding:36px 24px}
-  .cs-contacts{grid-template-columns:1fr}
+@media(max-width:1100px){
+  .contact-strip__inner{grid-template-columns:1fr;gap:22px;padding:32px 24px;text-align:left}
+  .contact-strip__brand{border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:18px}
+  .cs-cta{align-self:flex-start}
 }
 .serif-it{font-family:var(--serif);font-weight:300;font-style:italic;letter-spacing:-.02em}
 .site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,padding .3s,box-shadow .3s}
-.site-header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.site-header.scrolled{background:rgba(26,26,26,.94);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06);padding:12px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1240px;margin:0 auto;padding:0 32px}
 .brand{flex-shrink:0;display:inline-flex;align-items:center;gap:16px;text-decoration:none}
-.brand-logo{height:44px;width:auto;display:block;filter:brightness(0) invert(1);transition:filter .3s,height .3s}
-.site-header.scrolled .brand-logo{filter:none;height:38px}
-.brand-divider{width:1px;height:26px;background:rgba(255,255,255,.35);transition:background .3s}
-.site-header.scrolled .brand-divider{background:rgba(26,26,26,.2)}
-.brand-mark{font-weight:600;font-size:15px;letter-spacing:-.005em;color:#fff;transition:color .3s;line-height:1.15}
-.brand-mark small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:1px}
-.site-header.scrolled .brand-mark{color:var(--ink)}
+.brand-logo{height:44px;width:auto;display:block;filter:brightness(0) invert(1)}
+.brand-divider{width:1px;height:26px;background:rgba(255,255,255,.35)}
+.brand-mark{font-weight:600;font-size:15px;letter-spacing:-.005em;color:#fff;line-height:1.15}
 .nav{display:flex;align-items:center;gap:28px;margin-left:auto}
 .nav a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;transition:color .2s;text-decoration:none;position:relative}
 .nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#fff;border-radius:2px;transform:scaleX(0);transform-origin:left center;transition:transform .35s cubic-bezier(.16,1,.3,1)}
-.site-header.scrolled .nav a::after{background:var(--green-deep)}
 .nav a.is-active::after{transform:scaleX(1)}
 .nav a:hover{color:#fff}
-.site-header.scrolled .nav a{color:var(--ink-2)}
-.site-header.scrolled .nav a:hover{color:var(--green)}
 .menu-btn{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px;margin-left:auto;z-index:101}
 .menu-btn span{display:block;width:26px;height:2px;background:#fff;transition:background .3s}
-.site-header.scrolled .menu-btn span{background:var(--ink)}
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:2px;font-weight:500;font-size:14.5px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;font-family:inherit;text-decoration:none}
 .btn-sm{padding:9px 18px;font-size:13.5px}
@@ -320,7 +307,7 @@ details[open] .acc-arrow{transform:rotate(180deg)}
     <a href="#top" class="brand" aria-label="AQE advisors, a.s. — Regulatorní sandboxy">
       <img src="img/logo-aqe-black.png" alt="AQE advisors" class="brand-logo"/>
       <span class="brand-divider" aria-hidden="true"></span>
-      <span class="brand-mark">Regulatorní sandboxy<small>Metodika &amp; poradenství</small></span>
+      <span class="brand-mark">Regulatorní sandboxy</span>
     </a>
     <nav class="nav" aria-label="Hlavní navigace">
       <a href="#sandbox">Sandbox</a>
@@ -365,30 +352,19 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 <!-- ===== KONTAKTNÍ STRIP ===== -->
 <section class="contact-strip" aria-label="Nabídka spolupráce">
   <div class="contact-strip__inner">
-    <div class="contact-strip__left">
-      <span class="cs-eyebrow">Spolupráce</span>
-      <h2 class="cs-title"><em>Zvažujete</em> regulatorní sandbox?</h2>
-      <p class="cs-lead">Pomáháme ministerstvům, regulátorům, samosprávám i&nbsp;inovačním aktérům navrhnout a&nbsp;nastavit kontrolované testovací prostředí. Od&nbsp;metodiky přes legislativní rámec až po&nbsp;pilotní ověření.</p>
+    <div class="contact-strip__brand">
+      <img src="img/logo-aqe-black.png" alt="AQE advisors" class="cs-logo"/>
+      <span class="cs-tagline">Lídři inovací</span>
     </div>
-    <div class="contact-strip__right">
-      <div class="cs-contacts">
-        <a href="mailto:pavelka@AQE.cz" class="cs-contact">
-          <span class="cs-name">Jan Pavelka</span>
-          <span class="cs-role">Vedoucí projektu</span>
-          <span class="cs-mail">pavelka@AQE.cz</span>
-        </a>
-        <a href="mailto:havranek@AQE.cz" class="cs-contact">
-          <span class="cs-name">Jan Havránek</span>
-          <span class="cs-role">Ředitel AQE advisors</span>
-          <span class="cs-mail">havranek@AQE.cz</span>
-        </a>
-      </div>
-      <a href="#kontakt" class="cs-cta">
-        <span class="material-symbols-outlined">mail</span>
-        Napsat podnět
-        <span class="material-symbols-outlined cs-cta-arrow">arrow_forward</span>
-      </a>
+    <div class="contact-strip__copy">
+      <h2 class="cs-title"><em>Pojďme</em> tvořit společně</h2>
+      <p class="cs-lead">Máte otázky nebo připravený projekt? Rádi s&nbsp;vámi probereme detaily.</p>
     </div>
+    <a href="#kontakt" class="cs-cta">
+      <span class="material-symbols-outlined">mail</span>
+      Ozvěte se nám
+      <span class="material-symbols-outlined cs-cta-arrow">arrow_forward</span>
+    </a>
   </div>
 </section>
 
@@ -1115,17 +1091,17 @@ Ozvěte se nám
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Havránek</div>
 <div class="text-xs opacity-70 mb-2">Strategický rozvoj</div>
-<a href="mailto:havranek@AQE.cz" class="text-secondary-fixed-dim hover:underline text-sm break-all">havranek@AQE.cz</a>
+<a href="mailto:havranek@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">havranek@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Pavelka</div>
 <div class="text-xs opacity-70 mb-2">Vedoucí projektu</div>
-<a href="mailto:pavelka@AQE.cz" class="text-secondary-fixed-dim hover:underline text-sm break-all">pavelka@AQE.cz</a>
+<a href="mailto:pavelka@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">pavelka@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Daniel Bečvář</div>
 <div class="text-xs opacity-70 mb-2">Výzkum a analýzy</div>
-<a href="mailto:becvar@i-lab.cz" class="text-secondary-fixed-dim hover:underline text-sm break-all">becvar@i-lab.cz</a>
+<a href="mailto:becvar@i-lab.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">becvar@i-lab.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Rut Bízková</div>
