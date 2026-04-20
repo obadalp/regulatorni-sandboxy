@@ -160,31 +160,15 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .lifecycle-block{position:relative;background:#1a1a1a;color:#fff;border-radius:8px;padding:56px 40px;overflow:hidden}
 .lifecycle-block::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,69,54,.18) 0%,transparent 60%);pointer-events:none}
 .lifecycle-block > *{position:relative;z-index:1}
-.lifecycle-num{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:1;color:var(--green);margin-bottom:18px;letter-spacing:-.03em;position:relative;z-index:10}
+.lifecycle-num{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:1;color:#e88b6d;margin-bottom:18px;letter-spacing:-.03em;position:relative;z-index:10}
 
 /* Approaches dark block (3 přístupy) */
 .approaches{position:relative;background:#1a1a1a;color:#fff;border-radius:8px;padding:56px 40px;overflow:hidden}
 .approaches::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,69,54,.18) 0%,transparent 60%);pointer-events:none}
 .approach-col h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;margin-bottom:14px;color:#fff}
-.approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:var(--green);margin-bottom:20px;letter-spacing:-.02em}
+.approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:#e88b6d;margin-bottom:20px;letter-spacing:-.02em}
 .approach-col p{color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.55;margin-bottom:12px}
 .approach-col .approach-out{color:rgba(255,255,255,.45);font-size:12.5px;margin-top:4px;line-height:1.5}
-
-/* Tým — karty s fotkou vpravo, centrované jméno, bez iniciál */
-.team-card{display:grid;grid-template-columns:1fr 120px;gap:24px;background:#fff;padding:22px 24px 20px;border-radius:8px;border:1px solid rgba(26,26,26,.06);box-shadow:0 1px 2px rgba(26,26,26,.03);transition:transform .25s ease,box-shadow .25s ease,border-color .2s ease}
-.team-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px -12px rgba(196,69,54,.18);border-color:rgba(26,26,26,.14)}
-.team-text{display:flex;flex-direction:column}
-.team-name{font-family:'Fraunces','Noto Serif',serif;font-weight:400;font-style:italic;font-size:24px;line-height:1.1;letter-spacing:-.01em;color:#1a1a1a;text-align:center;margin:0 0 6px}
-.team-role{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);text-align:center;font-weight:600;margin:0 0 14px}
-.team-bio{font-size:13px;line-height:1.6;color:var(--ink-2);margin:0}
-.team-photo-wrap{width:120px;height:150px;border-radius:4px;overflow:hidden;background:linear-gradient(135deg,#f0ece4,#e8e4de);flex-shrink:0;position:relative}
-.team-photo-wrap::after{content:'';position:absolute;inset:0;border:1px solid rgba(26,26,26,.06);border-radius:4px;pointer-events:none}
-.team-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:640px){
-  .team-card{grid-template-columns:1fr;gap:16px}
-  .team-photo-wrap{width:90px;height:110px;margin:0 auto;order:-1}
-  .team-bio{text-align:left}
-}
 
 /* Globus (Ve světě) — dark block s radial clay gradient (kompaktnější) */
 .globe-wrap{position:relative;background:#1a1a1a;color:#fff;border-radius:8px;overflow:hidden;isolation:isolate}
@@ -212,8 +196,8 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .globe-pop .kv{display:flex;gap:8px;font-size:11.5px;color:rgba(255,255,255,.65);margin-top:2px}
 .globe-pop .kv strong{color:#fff;font-weight:500}
 .globe-pop .body{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.8);margin-top:10px}
-.globe-pop .pop-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:500;color:var(--green);text-decoration:none;letter-spacing:.01em;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s}
-.globe-pop .pop-link:hover{color:#e88b6d;border-bottom-color:#e88b6d}
+.globe-pop .pop-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:500;color:#e88b6d;text-decoration:none;letter-spacing:.01em;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s}
+.globe-pop .pop-link:hover{color:#f5a58c;border-bottom-color:#f5a58c}
 .globe-pop .pop-link .material-symbols-outlined{font-size:15px}
 .globe-pop .closer{position:absolute;top:6px;right:8px;width:22px;height:22px;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;line-height:1;border:0;background:transparent}
 .globe-pop .closer:hover{color:#fff}
@@ -240,8 +224,15 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .cs-tagline{font-family:'Fraunces','Noto Serif',Georgia,serif;font-style:italic;font-weight:300;font-size:22px;line-height:1.1;color:rgba(255,255,255,.75);padding-left:16px;border-left:1px solid rgba(255,255,255,.2);white-space:nowrap}
 .contact-strip__copy{min-width:0}
 .cs-title{font-family:'Fraunces','Noto Serif',Georgia,serif;font-weight:300;font-size:clamp(26px,2.6vw,36px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
-.cs-title em{font-style:italic;color:var(--green);font-weight:300}
+.cs-title em{font-style:italic;color:#e88b6d;font-weight:300}
 .cs-lead{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.cs-people{margin:14px 0 0;padding:0;list-style:none;display:flex;gap:28px;flex-wrap:wrap}
+.cs-people li{margin:0}
+.cs-people a{display:flex;flex-direction:column;text-decoration:none;border-left:2px solid rgba(255,255,255,.2);padding-left:12px;transition:border-color .2s}
+.cs-people a:hover{border-left-color:#e88b6d}
+.cs-person-name{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:-.005em;line-height:1.2}
+.cs-person-role{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:2px}
+.cs-people a:hover .cs-person-name{color:#e88b6d}
 .cs-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;background:var(--green);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.01em;transition:background .2s;white-space:nowrap;flex-shrink:0}
 .cs-cta:hover{background:var(--green-dark)}
 .cs-cta .material-symbols-outlined{font-size:19px}
@@ -359,6 +350,10 @@ details[open] .acc-arrow{transform:rotate(180deg)}
     <div class="contact-strip__copy">
       <h2 class="cs-title"><em>Pojďme</em> tvořit společně</h2>
       <p class="cs-lead">Máte otázky nebo připravený projekt? Rádi s&nbsp;vámi probereme detaily.</p>
+      <ul class="cs-people">
+        <li><a href="mailto:pavelka@AQE.cz"><span class="cs-person-name">Jan Pavelka</span><span class="cs-person-role">Vedoucí projektu</span></a></li>
+        <li><a href="mailto:havranek@AQE.cz"><span class="cs-person-name">Jan Havránek</span><span class="cs-person-role">Ředitel AQE advisors</span></a></li>
+      </ul>
     </div>
     <a href="#kontakt" class="cs-cta">
       <span class="material-symbols-outlined">mail</span>
@@ -504,7 +499,7 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="approaches">
   <div class="editorial-grid" style="position:relative;z-index:1">
     <div class="col-span-12 lg:col-span-4">
-      <div class="section-num" style="color:var(--green)">Podle Leckenby a&nbsp;kol. (2021)</div>
+      <div class="section-num" style="color:#e88b6d">Podle Leckenby a&nbsp;kol. (2021)</div>
       <h3 class="font-headline" style="font-family:var(--serif);font-weight:300;font-style:italic;font-size:40px;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-top:10px">Tři přístupy<br>k&nbsp;experimentu</h3>
       <p style="color:rgba(255,255,255,.6);margin-top:14px;font-size:14px;line-height:1.6">Rozdíl je v&nbsp;tom, <em>co&nbsp;se&nbsp;nakonec mění</em> — produkt, politika, nebo obojí najednou.</p>
     </div>
@@ -905,7 +900,11 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 </button>
 </div>
 <div class="text-[10px] tracking-widest uppercase text-outline mb-3" id="pd-subtitle"></div>
-<p class="text-on-surface-variant text-sm leading-relaxed" id="pd-body"></p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3" id="pd-body"></p>
+<a id="pd-link" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary transition-colors" style="display:none">
+  <span class="material-symbols-outlined text-base">open_in_new</span>
+  <span id="pd-link-label">—</span>
+</a>
 </div>
 </div>
 
@@ -916,45 +915,66 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
     mpsv: {
       title: "MPSV — Ministerstvo práce a sociálních věcí",
       subtitle: "Status: Jednáme o spolupráci",
-      body: "Klíčový partner pro sociální oblast. Spolupráce na metodice regulatorních sandboxů, propojení s projekty sociálních inovací OPZ+, podpora legislativních změn v zákonech v gesci MPSV (o sociálních službách, o státní sociální podpoře, o podpoře bydlení, o sociálně-právní ochraně dětí a dalších)."
+      body: "Klíčový partner pro sociální oblast. Spolupráce na metodice regulatorních sandboxů, propojení s projekty sociálních inovací OPZ+, podpora legislativních změn v zákonech v gesci MPSV (o sociálních službách, o státní sociální podpoře, o podpoře bydlení, o sociálně-právní ochraně dětí a dalších).",
+      url: "https://www.mpsv.cz",
+      urlLabel: "mpsv.cz"
     },
     mpo: {
       title: "MPO — Ministerstvo průmyslu a obchodu",
       subtitle: "Status: Aktivní spolupráce",
-      body: "Gestor DEPO II — novelizace složkových zákonů, která umožní realizaci regulatorních sandboxů v praxi. Téma RS v MPO spadá pod agendu digitalizace a podpory inovací."
+      body: "Gestor DEPO II — novelizace složkových zákonů, která umožní realizaci regulatorních sandboxů v praxi. Téma RS v MPO spadá pod agendu digitalizace a podpory inovací.",
+      url: "https://www.mpo.gov.cz",
+      urlLabel: "mpo.gov.cz"
     },
     tacr: {
       title: "TAČR — Technologická agentura ČR",
       subtitle: "Status: Aktivní spolupráce",
-      body: "Se zákonem 328/2025 Sb. získává kompetence v oblasti regulatorních sandboxů. Klíčová instituce pro programovou a finanční podporu. Programy SIGMA a BETA 3 jako potenciální zdroj financování dalšího výzkumu."
+      body: "Se zákonem 328/2025 Sb. získává kompetence v oblasti regulatorních sandboxů. Klíčová instituce pro programovou a finanční podporu. Programy SIGMA a BETA 3 jako potenciální zdroj financování dalšího výzkumu.",
+      url: "https://www.tacr.cz",
+      urlLabel: "tacr.cz"
     },
     mmr: {
       title: "MMR — Ministerstvo pro místní rozvoj",
       subtitle: "Status: Potvrzeno",
-      body: "Gestor regionální a&nbsp;urbánní politiky, Národního plánu obnovy a&nbsp;IROP. Klíčový partner pro sandboxy s&nbsp;územní dimenzí — pilotní projekty v&nbsp;obcích a&nbsp;krajích, propojení na&nbsp;strukturální fondy EU."
+      body: "Gestor regionální a\u00a0urbánní politiky, Národního plánu obnovy a\u00a0IROP. Klíčový partner pro sandboxy s\u00a0územní dimenzí — pilotní projekty v\u00a0obcích a\u00a0krajích, propojení na\u00a0strukturální fondy EU.",
+      url: "https://www.mmr.gov.cz",
+      urlLabel: "mmr.gov.cz"
     },
     as: {
       title: "Město Aš a lokální aktéři",
       subtitle: "Status: Potvrzeno — pilotní území",
-      body: "Pilotní území pro regulatorní sandbox v&nbsp;sociální oblasti. Město aktivně řeší iniciativu Lex Aš. V regionu jsou zapojeny: RUBIKON Centrum (oddlužení), MAS 21, Sdružení Ašsko a další NNO."
+      body: "Pilotní území pro regulatorní sandbox v\u00a0sociální oblasti. Město aktivně řeší iniciativu Lex Aš. V regionu jsou zapojeny: RUBIKON Centrum (oddlužení), MAS 21, Sdružení Ašsko a další NNO.",
+      url: "https://www.muas.cz",
+      urlLabel: "muas.cz"
     },
     mzp: {
       title: "MŽP — Ministerstvo životního prostředí",
       subtitle: "Status: Plánováno",
-      body: "Potenciální partner pro sandboxy v oblasti energetické chudoby, cirkulární ekonomiky a udržitelného rozvoje periferních regionů."
+      body: "Potenciální partner pro sandboxy v oblasti energetické chudoby, cirkulární ekonomiky a udržitelného rozvoje periferních regionů.",
+      url: "https://www.mzp.cz",
+      urlLabel: "mzp.cz"
     }
   };
   var panel = document.getElementById('partner-detail');
   var tEl = document.getElementById('pd-title');
   var sEl = document.getElementById('pd-subtitle');
   var bEl = document.getElementById('pd-body');
+  var lEl = document.getElementById('pd-link');
+  var lLblEl = document.getElementById('pd-link-label');
   var buttons = document.querySelectorAll('.partner-card');
   var current = null;
   function open(key){
     var d = data[key]; if(!d) return;
     tEl.textContent = d.title;
     sEl.textContent = d.subtitle;
-    bEl.textContent = d.body;
+    bEl.innerHTML = d.body;
+    if(d.url){
+      lEl.href = d.url;
+      lLblEl.textContent = d.urlLabel || d.url;
+      lEl.style.display = 'inline-flex';
+    } else {
+      lEl.style.display = 'none';
+    }
     panel.style.maxHeight = panel.scrollHeight + 'px';
     // měření po vložení obsahu
     requestAnimationFrame(function(){
@@ -1011,62 +1031,51 @@ Ozvěte se nám
 <h2 class="font-headline text-4xl md:text-5xl mb-4 italic">Náš <em style="color:var(--green)">tým</em></h2>
 <p class="text-on-surface-variant">Realizátor: <a href="https://www.aqe.cz" target="_blank" class="text-primary font-semibold underline">AQE advisors, a.s.</a></p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Rut Bízková</h4>
-    <p class="team-role">Regulatorní prostředí</p>
-    <p class="team-bio">Zabývá se významem inovací pro regionální rozvoj, managementem výzkumu a&nbsp;vývoje a&nbsp;využitím nových znalostí pro rozvoj společnosti. Z&nbsp;původní profese — výzkumu v&nbsp;jaderné chemii — se postupně dostala k&nbsp;energetice, životnímu prostředí a&nbsp;udržitelnému rozvoji. Spoluautorka řady strategických dokumentů.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/bizkova.jpg" alt="Rut Bízková" onerror="this.style.display='none'"></div>
-</article>
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Jan Havránek</h4>
-    <p class="team-role">Strategický rozvoj</p>
-    <p class="team-bio">Působí jako ředitel AQE advisors, a.s. a&nbsp;specialista na strategický rozvoj ve&nbsp;veřejné správě. Více než dvě dekády se věnuje propojování inovací s&nbsp;regulatorním prostředím — od&nbsp;řízení strukturálních fondů na&nbsp;MPSV a&nbsp;Ministerstvu vnitra přes poradenství pro TA&nbsp;ČR až po rozvoj nástrojů pro efektivní správu měst a&nbsp;obcí. Ph.D. získal na&nbsp;Mendelově univerzitě v&nbsp;Brně za&nbsp;výzkum zaměřený na zefektivnění řízení organizací veřejné správy. Odpovídá za&nbsp;strategický rozvoj a&nbsp;propojení metodiky regulačních prostředí s&nbsp;českou institucionální praxí.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/havranek.jpg" alt="Jan Havránek" onerror="this.style.display='none'"></div>
-</article>
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Jan Pavelka</h4>
-    <p class="team-role">Vedoucí projektu</p>
-    <p class="team-bio">Pochází z&nbsp;akademického prostředí — jako výzkumník na Univerzitě Palackého v&nbsp;Olomouci a&nbsp;VUT v&nbsp;Brně se věnoval vztahu mezi životním stylem, zdravím a&nbsp;kvalitou života u&nbsp;dětí a&nbsp;dospívajících. Podílel se na mezinárodní výzkumné síti HBSC a&nbsp;řídil výstavbu vědecko-technického parku BALUO. Působí jako projektový manažer a&nbsp;zabývá se metodikou spekulativního designu pro modelování budoucích scénářů regulatorních sandboxů.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/pavelka.jpg" alt="Jan Pavelka" onerror="this.style.display='none'"></div>
-</article>
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Daniel Bečvář</h4>
-    <p class="team-role">Výzkum a&nbsp;analýzy</p>
-    <p class="team-bio">Sociální geograf se zaměřením na regionální rozvoj. Studuje doktorský program geografie na Fakultě ekonomické ZČU. Své aktivity staví okolo rozvoje Karlovarského kraje — v&nbsp;dizertaci se zabývá faktory migrace vysokoškoláků. V&nbsp;rámci Institutu lázeňství a&nbsp;balneologie rozvíjí české poznání o&nbsp;regulatorních sandboxech. Hlavní autor první rešerše odborné literatury k&nbsp;tématu regulatorních sandboxů ve&nbsp;střední Evropě.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/becvar.jpg" alt="Daniel Bečvář" onerror="this.style.display='none'"></div>
-</article>
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Kateřina Kusáková</h4>
-    <p class="team-role">Projektová podpora</p>
-    <p class="team-bio">Medailonek bude doplněn.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/kusakova.jpg" alt="Kateřina Kusáková" onerror="this.style.display='none'"></div>
-</article>
-
-<article class="team-card reveal">
-  <div class="team-text">
-    <h4 class="team-name">Aneta Šmerdová</h4>
-    <p class="team-role">Projektová podpora</p>
-    <p class="team-bio">Medailonek bude doplněn.</p>
-  </div>
-  <div class="team-photo-wrap"><img src="img/team/smerdova.jpg" alt="Aneta Šmerdová" onerror="this.style.display='none'"></div>
-</article>
-
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">RB</div>
+<h4 class="font-headline text-lg font-bold">Rut Bízková</h4>
+<p class="text-primary text-xs font-semibold mb-2">Regulatorní prostředí</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Rut<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Zabývá se významem inovací pro regionální rozvoj, managementem výzkumu a&nbsp;vývoje a&nbsp;využitím nových znalostí pro rozvoj společnosti. Z&nbsp;původní profese — výzkumu v&nbsp;jaderné chemii — se postupně dostala k&nbsp;energetice, životnímu prostředí a&nbsp;udržitelnému rozvoji. Spoluautorka řady strategických dokumentů. Usiluje o&nbsp;propojení aktérů na národní, regionální a&nbsp;místní úrovni.</p>
+</details>
+</div>
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JH</div>
+<h4 class="font-headline text-lg font-bold">Jan Havránek</h4>
+<p class="text-primary text-xs font-semibold mb-2">Strategický rozvoj</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Janovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Působí jako ředitel AQE advisors, a.s. a&nbsp;specialista na strategický rozvoj ve&nbsp;veřejné správě. Více než dvě dekády se věnuje propojování inovací s&nbsp;regulatorním prostředím — od&nbsp;řízení strukturálních fondů na&nbsp;MPSV a&nbsp;Ministerstvu vnitra přes poradenství pro TA&nbsp;ČR až po rozvoj nástrojů pro efektivní správu měst a&nbsp;obcí. Ph.D. získal na&nbsp;Mendelově univerzitě v&nbsp;Brně za&nbsp;výzkum zaměřený na zefektivnění řízení organizací veřejné správy. Odpovídá za&nbsp;strategický rozvoj a&nbsp;propojení metodiky regulačních prostředí s&nbsp;českou institucionální praxí.</p>
+</details>
+</div>
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">JP</div>
+<h4 class="font-headline text-lg font-bold">Jan Pavelka</h4>
+<p class="text-primary text-xs font-semibold mb-2">Vedoucí projektu</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Janovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Pochází z&nbsp;akademického prostředí — jako výzkumník na Univerzitě Palackého v&nbsp;Olomouci a&nbsp;VUT v&nbsp;Brně se věnoval vztahu mezi životním stylem, zdravím a&nbsp;kvalitou života u&nbsp;dětí a&nbsp;dospívajících. Podílel se na mezinárodní výzkumné síti HBSC a&nbsp;řídil výstavbu vědecko-technického parku BALUO. Působí jako projektový manažer a&nbsp;zabývá se metodikou spekulativního designu pro modelování budoucích scénářů regulatorních sandboxů.</p>
+</details>
+</div>
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">DB</div>
+<h4 class="font-headline text-lg font-bold">Daniel Bečvář</h4>
+<p class="text-primary text-xs font-semibold mb-2">Výzkum a analýzy</p>
+<details><summary class="text-on-surface-variant text-sm cursor-pointer flex items-center gap-1">Více o Danielovi<span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Sociální geograf se zaměřením na regionální rozvoj. V&nbsp;současnosti studuje doktorský program geografie na Fakultě ekonomické ZČU. Své aktivity staví okolo rozvoje Karlovarského kraje — v&nbsp;dizertaci se zabývá faktory migrace vysokoškoláků z&nbsp;tohoto kraje. V&nbsp;rámci Institutu lázeňství a&nbsp;balneologie rozvíjí české poznání o&nbsp;regulatorních sandboxech. Hlavní autor první rešerše odborné literatury k&nbsp;tématu regulatorních sandboxů ve střední Evropě.</p>
+</details>
+</div>
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">KK</div>
+<h4 class="font-headline text-lg font-bold">Kateřina Kusáková</h4>
+<p class="text-primary text-xs font-semibold mb-2">Projektová podpora</p>
+<p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
+</div>
+<div class="bg-surface p-6 rounded-xl reveal">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center font-bold text-sm mb-4">AŠ</div>
+<h4 class="font-headline text-lg font-bold">Aneta Šmerdová</h4>
+<p class="text-primary text-xs font-semibold mb-2">Projektová podpora</p>
+<p class="text-on-surface-variant text-sm">Medailonek bude doplněn.</p>
+</div>
 </div>
 </div>
 </section>
@@ -1077,7 +1086,7 @@ Ozvěte se nám
 <div class="editorial-grid">
 <div class="col-span-12 lg:col-span-5">
 <span class="section-num" style="color:rgba(255,255,255,.7)">08 / Kontakt</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám <em style="color:var(--green)">svůj podnět</em></h2>
+<h2 class="font-headline text-4xl md:text-5xl mb-6 italic">Pošlete nám <em style="color:#e88b6d">svůj podnět</em></h2>
 <p class="opacity-85 leading-relaxed mb-8">Máte nápad na využití regulačního prostředí? Chcete se zapojit? Máte zkušenost ze&nbsp;zahraničí? Každý podnět pečlivě vyhodnotíme.</p>
 <div class="space-y-4 text-sm mb-12">
 <div><strong class="block mb-1">Nápad / Námět</strong><span class="opacity-75">Obecná myšlenka nebo pozorování, které by mohlo vést k&nbsp;regulačnímu prostředí.</span></div>
@@ -1091,17 +1100,17 @@ Ozvěte se nám
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Havránek</div>
 <div class="text-xs opacity-70 mb-2">Strategický rozvoj</div>
-<a href="mailto:havranek@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">havranek@AQE.cz</a>
+<a href="mailto:havranek@AQE.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">havranek@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Jan Pavelka</div>
 <div class="text-xs opacity-70 mb-2">Vedoucí projektu</div>
-<a href="mailto:pavelka@AQE.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">pavelka@AQE.cz</a>
+<a href="mailto:pavelka@AQE.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">pavelka@AQE.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Daniel Bečvář</div>
 <div class="text-xs opacity-70 mb-2">Výzkum a analýzy</div>
-<a href="mailto:becvar@i-lab.cz" class="text-white hover:text-secondary transition-colors text-sm break-all font-semibold">becvar@i-lab.cz</a>
+<a href="mailto:becvar@i-lab.cz" class="text-white hover:text-[#e88b6d] transition-colors text-sm break-all font-semibold">becvar@i-lab.cz</a>
 </li>
 <li class="bg-white/5 rounded-xl p-5 border border-white/10">
 <div class="font-bold">Rut Bízková</div>
