@@ -166,8 +166,7 @@ details[open] .acc-arrow{transform:rotate(180deg)}
 .approach-col h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;margin-bottom:14px;color:#fff}
 .approach-col .big{font-family:'Fraunces','Noto Serif',serif;font-weight:300;font-style:italic;font-size:34px;line-height:1;color:var(--green);margin-bottom:20px;letter-spacing:-.02em}
 .approach-col p{color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.55;margin-bottom:12px}
-.approach-col .out{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(255,255,255,.18);border-radius:2px;font-size:12px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.03)}
-.approach-col .out .material-symbols-outlined{font-size:14px;color:var(--green)}
+.approach-col .approach-out{color:rgba(255,255,255,.45);font-size:12.5px;margin-top:4px;line-height:1.5}
 
 /* Quick Facts strip */
 .qf{background:#1a1a1a;color:#fff;position:relative}
@@ -542,43 +541,35 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <div class="w-24 h-px bg-primary opacity-20 hidden md:block"></div>
 </div>
 
-<!-- 3 typy — editorial rows (horizontal stacked layout) -->
-<div class="type-rows mb-20">
-  <div class="type-row reveal">
-    <div class="type-row__num"><span class="mono">Typ 01</span><div class="type-row__big">I</div></div>
-    <div class="type-row__body">
-      <h3 class="type-row__title">Průzkumný</h3>
-      <p class="type-row__desc">Objevování a&nbsp;testování nových řešení, kde regulátor teprve získává zkušenosti. Široký prostor pro experimentování, důraz na <em>regulatorní učení</em>.</p>
-      <div class="type-row__ex">
-        <span class="type-row__ex-label">Příklad</span>
-        <span><strong>CzechInvest</strong> — spolupráce s&nbsp;firmami na&nbsp;finančních trzích, hledá se cesta, jak vyhovět stávající legislativě.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="type-row reveal">
-    <div class="type-row__num"><span class="mono">Typ 02</span><div class="type-row__big">II</div></div>
-    <div class="type-row__body">
-      <h3 class="type-row__title">Potvrzující</h3>
-      <p class="type-row__desc">Ověření, že&nbsp;již vyvinuté řešení funguje a&nbsp;může být bezpečně nasazeno do&nbsp;praxe. Experimenty probíhají podle <em>předem stanovených kritérií</em>.</p>
-      <div class="type-row__ex">
-        <span class="type-row__ex-label">Příklad</span>
-        <span><strong>Španělský AI sandbox</strong> — ověření přístupu před přijetím celoevropské legislativy.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="type-row reveal">
-    <div class="type-row__num"><span class="mono">Typ 03</span><div class="type-row__big">III</div></div>
-    <div class="type-row__body">
-      <h3 class="type-row__title">Na&nbsp;poptávku</h3>
-      <p class="type-row__desc">Regulátor sám vymezuje prioritní témata a&nbsp;motivuje k&nbsp;experimentům. <em>Definuje témata</em>, poskytuje pobídky (granty, podporu).</p>
-      <div class="type-row__ex">
-        <span class="type-row__ex-label">Příklad</span>
-        <span><strong>Singapur</strong> — ministerstvo zdravotnictví vymezilo telemedicínu jako prioritní oblast testování.</span>
-      </div>
-    </div>
-  </div>
+<!-- 3 typy — původní karty 01/02/03 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 items-start">
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">01</span>
+<h3 class="font-headline text-2xl mb-3">Průzkumný</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Objevování a&nbsp;testování nových řešení, kde regulátor teprve získává zkušenosti.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">CzechInvest — spolupráce s&nbsp;firmami na finančních trzích, kde se hledá cesta, jak vyhovět stávající legislativě.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">02</span>
+<h3 class="font-headline text-2xl mb-3">Potvrzující</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Ověření, že již vyvinuté řešení funguje a&nbsp;může být bezpečně nasazeno do praxe.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">Španělský AI sandbox — ověření před přijetím celoevropské legislativy.</p>
+</details>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl border-l-4 border-primary hover:-translate-y-2 transition-transform duration-300 reveal">
+<span class="font-label text-primary/30 text-4xl font-bold mb-6 block">03</span>
+<h3 class="font-headline text-2xl mb-3">Na poptávku</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Regulátor sám vymezuje prioritní témata a&nbsp;motivuje k&nbsp;experimentům.</p>
+<details>
+<summary class="text-primary text-sm font-semibold flex items-center gap-1 cursor-pointer"><span>Příklad</span><span class="material-symbols-outlined text-sm acc-arrow">expand_more</span></summary>
+<p class="mt-2 text-xs text-on-surface-variant">Singapur — telemedicína jako prioritní oblast testování.</p>
+</details>
+</div>
 </div>
 
 <!-- 3 přístupy — dark editorial block s A./B./C. -->
@@ -594,19 +585,19 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
         <div class="big">A.</div>
         <h4>PORADNÍ</h4>
         <p>Pomoci novým produktům splnit stávající předpisy.</p>
-        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Mění se <strong style="color:#fff;margin-left:4px">produkt</strong></span>
+        <p class="approach-out">Výsledek: mění se produkt, ne regulace.</p>
       </div>
       <div class="approach-col">
         <div class="big">B.</div>
         <h4>ADAPTIVNÍ</h4>
         <p>Přizpůsobení stávajících předpisů novému řešení.</p>
-        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Mění se <strong style="color:#fff;margin-left:4px">produkt&nbsp;i&nbsp;politika</strong></span>
+        <p class="approach-out">Výsledek: mění se produkt i&nbsp;politika.</p>
       </div>
       <div class="approach-col">
         <div class="big">C.</div>
         <h4>PŘEDVÍDAVÝ</h4>
         <p>Vyvíjet předpisy souběžně s&nbsp;vývojem produktů.</p>
-        <span class="out"><span class="material-symbols-outlined">arrow_forward</span> Vzniká <strong style="color:#fff;margin-left:4px">nová regulace</strong></span>
+        <p class="approach-out">Výsledek: vzniká zcela nová regulace.</p>
       </div>
     </div>
   </div>
@@ -700,8 +691,8 @@ Zákon 328/2025 Sb. definuje regulační prostředí takto: „Projekt kontrolov
 <p class="text-on-surface-variant text-lg leading-relaxed">Klíčové milníky od roku 2018 po plánované aktivity.</p>
 </div>
 <div class="relative">
-<!-- Central line -->
-<div class="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-primary/20 lg:-translate-x-1/2"></div>
+<!-- Central line (posunutá o 50 px výše) -->
+<div class="absolute left-6 lg:left-1/2 bottom-0 w-px bg-primary/20 lg:-translate-x-1/2" style="top:-50px"></div>
 <div class="space-y-12 lg:space-y-16">
 
 <!-- 2018 -->
