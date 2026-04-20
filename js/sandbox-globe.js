@@ -28,8 +28,10 @@ async function loadCountries(){
 
 window.SandboxGlobe = function(canvas, cfg){
   const ctx = canvas.getContext('2d');
-  let W=0,H=0,cx=0,cy=0, baseR=0, zoom=1;
-  let rot=[10,-20]; // začátek nad Evropou
+  let W=0,H=0,cx=0,cy=0, baseR=0;
+  // Výchozí pohled: Evropa (střed ~10°E), mírně nakloněno (25°N), přiblíženo ~2×
+  let zoom = 1.7;
+  let rot = [15, 48];
   let autoSpin=true;
   let dragging=false, lastX=0, lastY=0, moved=false;
   let countries=null;
@@ -361,7 +363,7 @@ window.SandboxGlobe = function(canvas, cfg){
     setSpin(v){ autoSpin = !!v; },
     zoomIn(){ zoom = Math.min(4, zoom*1.3); },
     zoomOut(){ zoom = Math.max(0.7, zoom/1.3); },
-    reset(){ zoom = 1; rot = [10,-20]; autoSpin = true; selectedMarker = -1; },
+    reset(){ zoom = 1.7; rot = [15, 48]; autoSpin = true; selectedMarker = -1; },
     focusOn(lon, lat){ rot = [lon, lat]; autoSpin = false; },
     deselect(){ selectedMarker = -1; }
   };
